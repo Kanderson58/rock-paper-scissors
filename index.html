@@ -5,12 +5,13 @@
         <script type="text/javascript" src="./game.js"></script>
         <script type="text/javascript" src="./player.js"></script>
         <link rel="stylesheet" href="./styles.css">
+        <link href="https://fonts.cdnfonts.com/css/herculanum-lt-pro" rel="stylesheet">
         <title>Rock, Paper, Scissors</title>
     </head>
     <body>
         <section class="person-section">
             <header class="person-header">
-                <p id="needThisForLabel" class="will-be-img">Image</p>
+                <p id="needThisForLabel" class="will-be-img"><img src="./assets/cabbage-guy.png" alt="My cabbages guy"></p>
                 <label for="needThisForLabel">Person</label>
             </header>
             <p class="current-wins">Wins: 0</p>
@@ -19,29 +20,32 @@
             <header class="main-header">
                 <h1>Rock, Paper, Scissors</h1>
                 <h2>Chose Your Game!</h2>
+                <h2 class="hidden">Chose Your Fighter!</h2>
             </header>
             <div class="classic-game">
                 <h3>Classic Game</h3>
                 <ul>
-                    <li>Rock beats Scissors</li>
-                    <li>Paper beats Rock</li>
-                    <li>Scissors beats Paper</li>
+                    <li><strong>Rock</strong> beats <strong>Scissors</strong></li>
+                    <li><strong>Paper</strong> beats <strong>Rock</strong></li>
+                    <li><strong>Scissors</strong> beats <strong>Paper</strong></li>
                 </ul>
             </div>
+            <div class="classic-game-view hidden">Three clickable images</div>
             <div class="complex-game">
                 <h3>Complex Game</h3>
                 <ul>
-                    <li>Earths wins against Avatar, Water</li>
-                    <li>Water wins against Avatar, Fire</li>
-                    <li>Fire wins against Air, Earth</li>
-                    <li>Air wins against Earth, Water</li>
-                    <li>Avatar wins against Fire, Air</li>
+                    <li><strong>Earth</strong> wins against <strong>Avatar, Water</strong></li>
+                    <li><strong>Water</strong> wins against <strong>Avatar, Fire</strong></li>
+                    <li><strong>Fire</strong> wins against <strong>Air, Earth</strong></li>
+                    <li><strong>Air</strong> wins against <strong>Earth, Water</strong></li>
+                    <li><strong>Avatar</strong> wins against <strong>Fire, Air</strong></li>
                 </ul>
             </div>
+            <div class="complex-game-view hidden">Five clickable images</div>
         </main>
         <section class="computer-section">
             <header class="computer-header">
-                <p id="needThisForLabel" class="will-be-img">Image</p>
+                <p id="needThisForLabel" class="will-be-img"><img src="./assets/avatar-state.jpg" alt="Aang in the avatar state"></p>
                 <label for="needThisForLabel">Computer</label>
             </header>
             <p class="current-wins">Wins: 0</p>

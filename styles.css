@@ -1,5 +1,5 @@
-* {
-    border: 2px solid rgb(106, 45, 55)
+.hidden {
+    display: none;
 }
 
 html {
@@ -8,12 +8,14 @@ html {
 
 body {
     margin: 0;
-    background-color: #fddcb9;
     display: flex;
-    height: 100%
+    height: 100%;
+    font-family: 'Herculanum LT Pro', sans-serif;
 }
 
 main {
+    background-image: url("./assets/arrow.png");
+    background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,10 +24,30 @@ main {
     height: 100%;
 }
 
+h1 {
+    font-size: 50pt;
+    margin: 0;
+}
+
 section {
     width: 15%;
     height: 100%;
     background-color: #face8d;
+}
+
+img {
+    height: 150px;
+    width: 150px;
+    border-radius: 5px;;
+}
+
+h2, label {
+    font-size: 25pt;
+    margin: 0;
+}
+
+p {
+    font-size: 15pt;
 }
 
 section, .computer-header, .person-header, .main-header {
@@ -39,19 +61,40 @@ section, .computer-header, .person-header, .main-header {
 }
 
 div {
-    width: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #face8d;
+    border: 3px solid #964637;
+    border-radius: 5px;
+}
+
+div:hover {
+    background-color: #e37120;
+    transition: 1.5s;
+}
+
+.classic-game {
+    width: 25%
+}
+
+.complex-game {
+    width: 40%;
+    margin-bottom: 10%;
+}
+
+strong {
+    font-size: larger;
+    color: #964637;
 }
 
 ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    text-align: none;
+    white-space: nowrap;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 7%;
 }
