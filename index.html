@@ -22,7 +22,7 @@
                 <h2>Chose Your Game!</h2>
                 <h2 class="hidden">Chose Your Fighter!</h2>
             </header>
-            <div class="classic-game">
+            <div class="classic-game hidden">
                 <h3>Classic Game</h3>
                 <ul>
                     <li><strong>Rock</strong> beats <strong>Scissors</strong></li>
@@ -30,22 +30,28 @@
                     <li><strong>Scissors</strong> beats <strong>Paper</strong></li>
                 </ul>
             </div>
-            <div class="classic-game-view hidden">
-                <img src="./assets/happy-rocks.png" alt="rock">
-                <img src="./assets/happy-paper.png" alt="paper">
-                <img src="./assets/happy-scissors.png" alt="scissors">
+            <div class="classic-game-view">
+                <img src="./assets/happy-rocks.png" alt="rock" class="fighter">
+                <img src="./assets/happy-paper.png" alt="paper" class="fighter">
+                <img src="./assets/happy-scissors.png" alt="scissors" class="fighter">
             </div>
-            <div class="complex-game">
+            <div class="complex-game hidden">
                 <h3>Complex Game</h3>
                 <ul>
-                    <li><strong>Earth</strong> wins against <strong>Avatar, Water</strong></li>
                     <li><strong>Water</strong> wins against <strong>Avatar, Fire</strong></li>
+                    <li><strong>Earth</strong> wins against <strong>Avatar, Water</strong></li>
                     <li><strong>Fire</strong> wins against <strong>Air, Earth</strong></li>
                     <li><strong>Air</strong> wins against <strong>Earth, Water</strong></li>
                     <li><strong>Avatar</strong> wins against <strong>Fire, Air</strong></li>
                 </ul>
             </div>
-            <div class="complex-game-view hidden">Five clickable images</div>
+            <div class="complex-game-view hidden">
+                <img src="./assets/water.png" alt="water" class="fighter">
+                <img src="./assets/earth.png" alt="earth" class="fighter">
+                <img src="./assets/avatar.png" alt="avatar" class="fighter">
+                <img src="./assets/fire.png" alt="fire" class="fighter">
+                <img src="./assets/air.png" alt="air" class="fighter">
+            </div>
         </main>
         <section class="computer-section">
             <header class="computer-header">
