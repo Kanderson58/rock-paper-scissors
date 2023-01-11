@@ -26,12 +26,12 @@ function show(element) {
 }
 
 function selectClassic() {
-    currentGame.selectGame("classic");
+    currentGame.selectGameSetup("classic");
     showClassicGame();
 }
 
 function selectComplex() {
-    currentGame.selectGame("complex");
+    currentGame.selectGameSetup("complex");
     showComplexGame();
 }
 

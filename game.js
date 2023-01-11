@@ -4,10 +4,11 @@ class Game {
     constructor() {
         this.human = new Player
         this.computer = new Player
-        this.selectedGame;
         this.fighters = [];
+        this.selectedGame;
+        this.draw = true;
     }
-    selectGame(type){
+    selectGameSetup(type){
         this.selectedGame = type;
         if(this.selectedGame === "classic") {
             this.fighters = [1, 2, 3];
@@ -28,6 +29,7 @@ class Game {
     compareFightersClassic() {
         var human = this.human.chosenFighter;
         var comp = this.computer.chosenFighter;
+        this.draw = false;
         if(human === 1 && comp === 2) {
             this.computer.wins++
         } else if(human === 1 && comp === 3) {
@@ -50,6 +52,7 @@ class Game {
     compareFightersComplex() {
         var human = this.human.chosenFighter;
         var comp = this.computer.chosenFighter;
+        this.draw = false;
         if(human === 4 && (comp === 5 || comp === 8)) {
             this.computer.wins++
         } else if(human === 4 && (comp === 6 || comp === 7)) {
@@ -80,7 +83,7 @@ class Game {
         }
     }
     declareDraw() {
-        // console.log("draw")
+        this.draw = true;
     }
     declareHumanWinner() {
         // this.human.wins ++

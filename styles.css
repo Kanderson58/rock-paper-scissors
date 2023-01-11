@@ -56,7 +56,7 @@ section, .computer-header, .person-header, .main-header {
     margin-top: 30%;
 }
 
-div {
+div, .reset-button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,12 +96,33 @@ ul {
 }
 
 .classic-game-view, .complex-game-view, .results-view {
+    border: none;
+    background: none;
+}
+
+.images-complex, .images-classic{
     display: flex;
     flex-direction: row;
     border: none;
     background: none;
     margin-bottom: 30%;
     margin-top: 11%;
+}
+
+.images-classic {
+    margin-bottom: 45%;
+    margin-top: 22%;
+}
+
+.reset-complex, .reset-classic {
+    border: none;
+}
+
+.reset-button {
+    font-family: 'Herculanum LT Pro', sans-serif;
+    font-size: 20pt;
+    width: 400px;
+    padding: 3%;
 }
 
 .hidden {

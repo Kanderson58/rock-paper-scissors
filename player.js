@@ -3,12 +3,13 @@
 class Player {
     constructor() {
        this.name;
-       this.token;
+       this.token; // icon by the name
        this.wins = 0;
        this.chosenFighter; 
     }
     takeTurn(event) {
         if((currentGame.selectedGame === "classic" || currentGame.selectedGame === "complex") && this.name === "cabbage merchant") {
+            console.log(event.target)
             this.chosenFighter = parseInt(event.target.id);
         } else if(currentGame.selectedGame === "classic" && this.name === "avatar state") {
             this.getRandomFighter();
