@@ -59,8 +59,8 @@ Classic:
 3 beats 2
 
 Complex:
-4 wins against 6, 7
-5 wins against 6, 4
-6 wins against 7, 8
-7 wins against 8, 5
-8 wins against 5, 4
+4 wins against 6, 7 loses to 5, 8
+5 wins against 6, 4 loses to 7, 8
+6 wins against 7, 8 loses to 4, 5
+7 wins against 8, 5 loses to 4, 6
+8 wins against 5, 4 loses to 6, 7
