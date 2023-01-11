@@ -61,6 +61,6 @@ Classic:
 Complex:
 4 wins against 6, 7
 5 wins against 6, 4
+6 wins against 7, 8
 7 wins against 8, 5
 8 wins against 5, 4
-6 wins against 7, 8
