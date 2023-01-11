@@ -4,18 +4,18 @@ class Game {
     constructor() {
         this.human = new Player
         this.computer = new Player
-        // A way to keep track of the data for the game board
-        // check game conditions, including draw
-        // reset the board
+        this.selectedGame;
     }
     selectHumanFighter(event) {
         this.human.chosenFighter = parseInt(event.target.id);
     }
     selectClassicComputerFighter(event) {
+        this.selectedGame = "classic";
         this.computer.chosenFighter = Math.ceil(Math.random() * 3)
         this.selectHumanFighter(event);
     }
     selectComplexComputerFighter(event) {
+        this.selectedGame = "complex";
         var newRoll = Math.floor(Math.random() * 9)
         if(newRoll >= 4) {
             this.computer.chosenFighter = newRoll;
