@@ -13,6 +13,7 @@ class Game {
         this.selectedGame = "classic";
         this.computer.chosenFighter = Math.ceil(Math.random() * 3)
         this.selectHumanFighter(event);
+        this.compareFightersClassic()
     }
     selectComplexComputerFighter(event) {
         this.selectedGame = "complex";
@@ -25,13 +26,27 @@ class Game {
         this.selectHumanFighter(event);
     }
     compareFightersClassic() {
-        // this.human.chosenFighter
-        // this.computer.chosenFighter
-        // if strictly equal, return a draw (MAIN)
-        // conditionals dependent on human choice
-            // if 1 is chosen && this.computer.chosenFighter === 2, computer wins, else human wins
-            // if 2 is chosen && this.computer.chosenFighter === 3, computer wins, else human wins
-            // if 3 is chosen && this.computer.chosenFighter === 1, computer wins, else human wins
+        if(this.human.chosenFighter === this.computer.chosenFighter) {
+            this.declareDraw();
+        }
+        if(this.human.chosenFighter === 1 && this.computer.chosenFighter === 2) {
+            this.computer.wins++
+        } else if(this.human.chosenFighter === 1 && this.computer.chosenFighter === 3) {
+            this.human.wins++
+        }
+        if(this.human.chosenFighter === 2 && this.computer.chosenFighter === 3) {
+            this.computer.wins++
+        } else if(this.human.chosenFighter === 2 && this.computer.chosenFighter === 1) {
+            this.human.wins++
+        }
+        if(this.human.chosenFighter === 3 && this.computer.chosenFighter === 1) {
+            this.computer.wins++
+        } else if(this.human.chosenFighter === 3 && this.computer.chosenFighter === 2) {
+            this.human.wins++
+        }
+    }
+    declareDraw() {
+        console.log("draw")
     }
     compareFightersComplex() {
         // much worse conditional block
