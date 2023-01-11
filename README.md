@@ -40,3 +40,27 @@ Water wins against Avatar, Fire
 
 Fire loses to Water, Avatar
 Fire wins against Air, Earth
+
+## KEYS
+
+1 - rock
+2 - paper
+3 - scissors
+
+4 - water
+5 - earth
+6 - avatar
+7 - fire
+8 - air
+
+Classic:
+1 beats 3
+2 beats 1
+3 beats 2
+
+Complex:
+4 wins against 6, 7
+5 wins against 6, 4
+7 wins against 8, 5
+8 wins against 5, 4
+6 wins against 7, 8
