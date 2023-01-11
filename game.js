@@ -5,26 +5,25 @@ class Game {
         this.human = new Player
         this.computer = new Player
         this.selectedGame;
+        this.fighters = [];
+    }
+    selectGame(type){
+        this.selectedGame = type;
+        if(this.selectedGame === "classic") {
+            this.fighters = [1, 2, 3];
+        } else {
+            this.fighters = [4, 5, 6, 7, 8]
+        }
     }
     selectHumanFighter(event) {
-        this.human.chosenFighter = parseInt(event.target.id);
+        this.human.name = "cabbage merchant"
+        this.human.takeTurn(event);
     }
-    selectClassicComputerFighter(event) {
-        this.selectedGame = "classic";
-        this.computer.chosenFighter = Math.ceil(Math.random() * 3)
+    selectComputerFighter(event) {
+        this.computer.name = "avatar state"
+        this.computer.takeTurn();
         this.selectHumanFighter(event);
         this.compareFightersClassic()
-    }
-    selectComplexComputerFighter(event) {
-        this.selectedGame = "complex";
-        var newRoll = Math.floor(Math.random() * 9)
-        if(newRoll >= 4) {
-            this.computer.chosenFighter = newRoll;
-        } else {
-            this.selectComplexComputerFighter;
-        }
-        this.selectHumanFighter(event);
-        this.compareFightersComplex();
     }
     compareFightersClassic() {
         var human = this.human.chosenFighter;
@@ -51,9 +50,6 @@ class Game {
     compareFightersComplex() {
         var human = this.human.chosenFighter;
         var comp = this.computer.chosenFighter;
-        if(human === comp) {
-            this.declareDraw();
-        }
         if(human === 4 && (comp === 5 || comp === 8)) {
             this.computer.wins++
         } else if(human === 4 && (comp === 6 || comp === 7)) {
@@ -79,9 +75,12 @@ class Game {
         } else if(human === 8 && (comp === 5 || comp === 4)) {
             this.human.wins++
         }
+        if(human === comp) {
+            this.declareDraw();
+        }
     }
     declareDraw() {
-        console.log("draw")
+        // console.log("draw")
     }
     declareHumanWinner() {
         // this.human.wins ++

@@ -7,7 +7,16 @@ class Player {
        this.wins = 0;
        this.chosenFighter; 
     }
-    takeTurn() {
-        alert("Human takes turn")
+    takeTurn(event) {
+        if((currentGame.selectedGame === "classic" || currentGame.selectedGame === "complex") && this.name === "cabbage merchant") {
+            this.chosenFighter = parseInt(event.target.id);
+        } else if(currentGame.selectedGame === "classic" && this.name === "avatar state") {
+            this.getRandomFighter();
+        } else if(currentGame.selectedGame === "complex" && this.name === "avatar state") {
+            this.getRandomFighter();
+        }
+    }
+    getRandomFighter() {
+        this.chosenFighter = currentGame.fighters[Math.floor(Math.random() * currentGame.fighters.length)];
     }
 }
