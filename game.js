@@ -49,54 +49,46 @@ class Game {
         // console.log(this.human.wins)
     }
     compareFightersComplex() {
-        // much worse conditional block
-        // don't forget the draw
-        // conditionals dependent on human choice
-        // if 4 is chosen && this.computer.chosenFighter === 6 || === 7, human wins, else computer wins
-        // if 5 is chosen && this.computer.chosenFighter === 6 || === 4, human wins, else computer wins
-        // if 6 is chosen && this.computer.chosenFighter === 7 || === 8, human wins, else computer wins
-        // if 7 is chosen && this.computer.chosenFighter === 8 || === 5, human wins, else computer wins
-        // if 8 is chosen && this.computer.chosenFighter === 5 || === 4, human wins, else computer wins
         if(this.human.chosenFighter === this.computer.chosenFighter) {
             this.declareDraw();
         }
 
-        if(this.human.chosenFighter === 4 && this.computer.chosenFighter === 5 || this.computer.chosenFighter === 8) {
+        if(this.human.chosenFighter === 4 && (this.computer.chosenFighter === 5 || this.computer.chosenFighter === 8)) {
             console.log("log1")
             this.computer.wins++
-        } else if(this.human.chosenFighter === 4 && this.computer.chosenFighter === 6 || this.computer.chosenFighter === 7) {
+        } else if(this.human.chosenFighter === 4 && (this.computer.chosenFighter === 6 || this.computer.chosenFighter === 7)) {
             console.log("log2")
             this.human.wins++
         }
 
-        if(this.human.chosenFighter === 5 && this.computer.chosenFighter === 7 || this.computer.chosenFighter === 8) {
+        if(this.human.chosenFighter === 5 && (this.computer.chosenFighter === 7 || this.computer.chosenFighter === 8)) {
             console.log("log3")
             this.computer.wins++
-        } else if(this.human.chosenFighter === 5 && this.computer.chosenFighter === 4 || this.computer.chosenFighter === 6) {
+        } else if(this.human.chosenFighter === 5 && (this.computer.chosenFighter === 4 || this.computer.chosenFighter === 6)) {
             console.log("log4")
             this.human.wins++
         }
 
-        if(this.human.chosenFighter === 6 && this.computer.chosenFighter === 4 || this.computer.chosenFighter === 5) {
+        if(this.human.chosenFighter === 6 && (this.computer.chosenFighter === 4 || this.computer.chosenFighter === 5)) {
             console.log("log5")
             this.computer.wins++
-        } else if(this.human.chosenFighter === 6 && this.computer.chosenFighter === 7 || this.computer.chosenFighter === 8) {
+        } else if(this.human.chosenFighter === 6 && (this.computer.chosenFighter === 7 || this.computer.chosenFighter === 8)) {
             console.log("log6")
             this.human.wins++
         }
 
-        if(this.human.chosenFighter === 7 && this.computer.chosenFighter === 4 || this.computer.chosenFighter === 6) {
+        if(this.human.chosenFighter === 7 && (this.computer.chosenFighter === 4 || this.computer.chosenFighter === 6)) {
             console.log("log7")
             this.computer.wins++
-        } else if(this.human.chosenFighter === 7 && this.computer.chosenFighter === 8 || this.computer.chosenFighter === 5) {
+        } else if(this.human.chosenFighter === 7 && (this.computer.chosenFighter === 8 || this.computer.chosenFighter === 5)) {
             console.log("log8")
             this.human.wins++
         }
 
-        if(this.human.chosenFighter === 8 && this.computer.chosenFighter === 6 || this.computer.chosenFighter === 7) {
+        if(this.human.chosenFighter === 8 && (this.computer.chosenFighter === 6 || this.computer.chosenFighter === 7)) {
             console.log("log9")
             this.computer.wins++
-        } else if(this.human.chosenFighter === 8 && this.computer.chosenFighter === 5 || this.computer.chosenFighter === 4) {
+        } else if(this.human.chosenFighter === 8 && (this.computer.chosenFighter === 5 || this.computer.chosenFighter === 4)) {
             console.log("log10")
             this.human.wins++
         }
