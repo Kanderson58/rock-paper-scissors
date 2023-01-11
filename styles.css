@@ -100,25 +100,8 @@ ul {
     flex-direction: row;
     border: none;
     background: none;
-    margin-bottom: 27%;
+    margin-bottom: 30%;
     margin-top: 11%;
-}
-
-.classic-game-view {
-    margin-left: -4%;
-}
-
-.complex-game-view {
-    margin-left: -8%;
-}
-
-.results-view {
-    margin-left: -1%;
-}
-
-.fighter {
-    padding-left: 1%;
-    padding-right: 1%;
 }
 
 .hidden {
