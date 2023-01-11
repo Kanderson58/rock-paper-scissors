@@ -11,11 +11,15 @@ var classicGameOption = document.querySelector("#classic");
 var complexGameOption = document.querySelector("#complex");
 var classicGamePlay = document.querySelector("#classicView");
 var complexGamePlay = document.querySelector("#complexView");
-
+var resetButton = document.querySelectorAll("#resetBtn")
 classicGameOption.addEventListener("click", selectClassic);
 complexGameOption.addEventListener("click", selectComplex);
 classicGamePlay.addEventListener("click", function() {currentGame.selectComputerFighter(event)})
 complexGamePlay.addEventListener("click", function() {currentGame.selectComputerFighter(event)})
+// can I pass in just e?
+for(var i = 0; i < resetButton.length; i++) {
+    resetButton[i].addEventListener("click", showOptions)
+}
 
 function hide(element) {
     element.classList.add("hidden");
@@ -51,8 +55,11 @@ function showComplexGame() {
     show(complexGamePlay);
 }
 
-// function playGame(e) {
-//     console.log(e.target)
-//     currentGame.human.takeTurn(e)
-//     currentGame.computer.takeTurn()
-// }
+function showOptions() {
+    gameHeader.innerText ='Choose Your Game!'
+    gameHeader.id = "game-choice"
+    show(classicGameOption);
+    show(complexGameOption);
+    hide(classicGamePlay);
+    hide(complexGamePlay);
+}

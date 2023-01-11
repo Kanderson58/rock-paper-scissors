@@ -9,7 +9,6 @@ class Player {
     }
     takeTurn(event) {
         if((currentGame.selectedGame === "classic" || currentGame.selectedGame === "complex") && this.name === "cabbage merchant") {
-            console.log(event.target)
             this.chosenFighter = parseInt(event.target.id);
         } else if(currentGame.selectedGame === "classic" && this.name === "avatar state") {
             this.getRandomFighter();
