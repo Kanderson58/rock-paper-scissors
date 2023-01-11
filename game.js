@@ -5,24 +5,24 @@ class Game {
         this.human = new Player
         this.computer = new Player
         // A way to keep track of the data for the game board
-        this.selectedGame;
         // check game conditions, including draw
         // reset the board
     }
-    selectGame() {
-        // event.target to see which div was clicked
-        // MAIN: change views
-        // this.selectedGame = string of classic or complex
+    selectHumanFighter(event) {
+        this.human.chosenFighter = parseInt(event.target.id);
     }
-    selectHumanFighter() {
-        // event.target, checks class to find number to identify fighter
-        // assigns this.human.chosenFighter = that number
+    selectClassicComputerFighter(event) {
+        this.computer.chosenFighter = Math.ceil(Math.random() * 3)
+        this.selectHumanFighter(event);
     }
-    selectComputerFighter() {
-        // if this.selectedGame === classic, random number between 1-3
-        // assign this.human.chosenFighter
-        // if this.selectedGame === complex, random number between 4-8
-        // assign this.computer.chosenFighter
+    selectComplexComputerFighter(event) {
+        var newRoll = Math.floor(Math.random() * 9)
+        if(newRoll >= 4) {
+            this.computer.chosenFighter = newRoll;
+        } else {
+            this.selectComplexComputerFighter;
+        }
+        this.selectHumanFighter(event);
     }
     compareFightersClassic() {
         // this.human.chosenFighter
