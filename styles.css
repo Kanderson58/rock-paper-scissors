@@ -95,7 +95,7 @@ ul {
     padding-bottom: 7%;
 }
 
-.classic-game-view, .complex-game-view {
+.classic-game-view, .complex-game-view, .results-view {
     display: flex;
     flex-direction: row;
     border: none;
@@ -110,6 +110,10 @@ ul {
 
 .complex-game-view {
     margin-left: -8%;
+}
+
+.results-view {
+    margin-left: -1%;
 }
 
 .fighter {

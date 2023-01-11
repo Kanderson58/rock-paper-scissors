@@ -11,8 +11,8 @@
     <body>
         <section class="person-section">
             <header class="person-header">
-                <p id="needThisForLabel" class="will-be-img"><img src="./assets/cabbage-guy.png" alt="My cabbages guy"></p>
-                <label for="needThisForLabel">Person</label>
+                <img src="./assets/cabbage-guy.png" id="person" alt="My cabbages guy">
+                <label for="person">Person</label>
             </header>
             <p class="current-wins">Wins: 0</p>
         </section>
@@ -22,7 +22,7 @@
                 <h2>Chose Your Game!</h2>
                 <h2 class="hidden">Chose Your Fighter!</h2>
             </header>
-            <div class="classic-game hidden">
+            <div class="classic-game">
                 <h3>Classic Game</h3>
                 <ul>
                     <li><strong>Rock</strong> beats <strong>Scissors</strong></li>
@@ -30,12 +30,7 @@
                     <li><strong>Scissors</strong> beats <strong>Paper</strong></li>
                 </ul>
             </div>
-            <div class="classic-game-view">
-                <img src="./assets/happy-rocks.png" alt="rock" class="fighter">
-                <img src="./assets/happy-paper.png" alt="paper" class="fighter">
-                <img src="./assets/happy-scissors.png" alt="scissors" class="fighter">
-            </div>
-            <div class="complex-game hidden">
+            <div class="complex-game">
                 <h3>Complex Game</h3>
                 <ul>
                     <li><strong>Water</strong> wins against <strong>Avatar, Fire</strong></li>
@@ -45,18 +40,25 @@
                     <li><strong>Avatar</strong> wins against <strong>Fire, Air</strong></li>
                 </ul>
             </div>
+            <div class="classic-game-view hidden">
+                <img src="./assets/happy-rocks.png" alt="rock" class="fighter 1">
+                <img src="./assets/happy-paper.png" alt="paper" class="fighter 2 ">
+                <img src="./assets/happy-scissors.png" alt="scissors" class="fighter 3">
+            </div>
             <div class="complex-game-view hidden">
-                <img src="./assets/water.png" alt="water" class="fighter">
-                <img src="./assets/earth.png" alt="earth" class="fighter">
-                <img src="./assets/avatar.png" alt="avatar" class="fighter">
-                <img src="./assets/fire.png" alt="fire" class="fighter">
-                <img src="./assets/air.png" alt="air" class="fighter">
+                <img src="./assets/water.png" alt="water" class="fighter 4">
+                <img src="./assets/earth.png" alt="earth" class="fighter 5">
+                <img src="./assets/avatar.png" alt="avatar" class="fighter 6">
+                <img src="./assets/fire.png" alt="fire" class="fighter 7">
+                <img src="./assets/air.png" alt="air" class="fighter 8">
+            </div>
+            <div class="results-view hidden" id="results">
             </div>
         </main>
         <section class="computer-section">
             <header class="computer-header">
-                <p id="needThisForLabel" class="will-be-img"><img src="./assets/avatar-state.jpg" alt="Aang in the avatar state"></p>
-                <label for="needThisForLabel">Computer</label>
+                <img src="./assets/avatar-state.jpg" id="computer" alt="Aang in the avatar state">
+                <label for="computer">Computer</label>
             </header>
             <p class="current-wins">Wins: 0</p>
         </section>
