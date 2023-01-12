@@ -4,44 +4,119 @@ class Game {
     constructor() {
         this.human = new Player
         this.computer = new Player
-        // A way to keep track of the data for the game board
-        // check game conditions, including draw
-        // reset the board
+        this.fighters = [];
+        this.selectedGame;
+        this.draw = true;
+        this.currentWin = ""
+    }
+    selectGameSetup(type){
+        this.selectedGame = type;
+        if(this.selectedGame === "classic") {
+            this.fighters = [1, 2, 3];
+        } else {
+            this.fighters = [4, 5, 6, 7, 8]
+        }
     }
     selectHumanFighter(event) {
-        this.human.chosenFighter = parseInt(event.target.id);
+        this.human.name = "cabbage merchant"
+        this.human.token = "🥬";
+        this.human.takeTurn(event);
     }
-    selectClassicComputerFighter(event) {
-        this.computer.chosenFighter = Math.ceil(Math.random() * 3)
+    selectComputerFighter(event) {
+        this.computer.name = "avatar state"
+        this.computer.token = "☯️";
+        this.computer.takeTurn();
         this.selectHumanFighter(event);
-    }
-    selectComplexComputerFighter(event) {
-        var newRoll = Math.floor(Math.random() * 9)
-        if(newRoll >= 4) {
-            this.computer.chosenFighter = newRoll;
+        if(this.selectedGame === "classic") {
+            this.compareFightersClassic()
+            // this.compareFightersClassic();
         } else {
-            this.selectComplexComputerFighter;
+            this.compareFightersComplex()
+            // this.compareFightersComplex();
         }
-        this.selectHumanFighter(event);
     }
     compareFightersClassic() {
-        // this.human.chosenFighter
-        // this.computer.chosenFighter
-        // if strictly equal, return a draw (MAIN)
-        // conditionals dependent on human choice
-            // if 1 is chosen && this.computer.chosenFighter === 2, computer wins, else human wins
-            // if 2 is chosen && this.computer.chosenFighter === 3, computer wins, else human wins
-            // if 3 is chosen && this.computer.chosenFighter === 1, computer wins, else human wins
+        var human = this.human.chosenFighter;
+        var comp = this.computer.chosenFighter;
+        this.draw = false;
+        if(human === 1 && comp === 2) {
+            this.computer.wins++
+            this.currentWin = "Computer"
+        } else if(human === 1 && comp === 3) {
+            this.human.wins++
+            this.currentWin = "Person"
+        }
+        if(human === 2 && comp === 3) {
+            this.computer.wins++
+            this.currentWin = "Computer"
+        } else if(human === 2 && comp === 1) {
+            this.human.wins++
+            this.currentWin = "Person"
+        }
+        if(human === 3 && comp === 1) {
+            this.computer.wins++
+            this.currentWin = "Computer"
+        } else if(human === 3 && comp === 2) {
+            this.human.wins++
+            this.currentWin = "Person"
+        }
+        if(human === comp) {
+            this.declareDraw();
+            this.currentWin = "Draw"
+        }
+        console.log("human", this.human.wins)
+        console.log("comp", this.computer.wins)
+        console.log(this.currentWin)
     }
     compareFightersComplex() {
-        // much worse conditional block
-        // don't forget the draw
-        // conditionals dependent on human choice
-            // if 4 is chosen && this.computer.chosenFighter === 6 || === 7, human wins, else computer wins
-            // if 5 is chosen && this.computer.chosenFighter === 6 || === 4, human wins, else computer wins
-            // if 6 is chosen && this.computer.chosenFighter === 7 || === 8, human wins, else computer wins
-            // if 7 is chosen && this.computer.chosenFighter === 8 || === 5, human wins, else computer wins
-            // if 8 is chosen && this.computer.chosenFighter === 5 || === 4, human wins, else computer wins
+        var human = this.human.chosenFighter;
+        var comp = this.computer.chosenFighter;
+        this.draw = false;
+        if(human === 4 && (comp === 5 || comp === 8)) {
+            this.computer.wins++
+            this.currentWin = "Computer"
+        } else if(human === 4 && (comp === 6 || comp === 7)) {
+            this.human.wins++
+            this.currentWin = "Person"
+        }
+        if(human === 5 && (comp === 7 || comp === 8)) {
+            this.computer.wins++
+            this.currentWin = "Computer"
+        } else if(human === 5 && (comp === 4 || comp === 6)) {
+            this.human.wins++
+            this.currentWin = "Person"
+        }
+        if(human === 6 && (comp === 4 || comp === 5)) {
+            this.computer.wins++
+            this.currentWin = "Computer"
+        } else if(human === 6 && (comp === 7 || comp === 8)) {
+            this.human.wins++
+            this.currentWin = "Person"
+        }
+        if(human === 7 && (comp === 4 || comp === 6)) {
+            this.computer.wins++
+            this.currentWin = "Computer"
+        } else if(human === 7 && (comp === 8 || comp === 5)) {
+            this.human.wins++
+            this.currentWin = "Person"
+        }
+        if(human === 8 && (comp === 6 || comp === 7)) {
+            this.computer.wins++
+            this.currentWin = "Computer"
+        } else if(human === 8 && (comp === 5 || comp === 4)) {
+            this.human.wins++
+            this.currentWin = "Person"
+        }
+        if(human === comp) {
+            this.declareDraw();
+            this.currentWin = "Draw"
+        }
+        console.log("human", this.human.wins)
+        console.log("comp", this.computer.wins)
+        console.log(this.currentWin)
+    }
+    declareDraw() {
+        this.draw = true;
     }
     declareHumanWinner() {
         // this.human.wins ++
