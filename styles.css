@@ -38,9 +38,7 @@ img {
 }
 
 @keyframes zoom {
-    100% {
-      transform: scale(1.2);
-    }
+    100% {transform: scale(1.2);}
   }
 
 .fighter:hover {
@@ -104,7 +102,7 @@ ul {
     padding-bottom: 7%;
 }
 
-.classic-game-view, .complex-game-view, .results-view {
+.classic-game-view, .complex-game-view {
     border: none;
     background: none;
 }
@@ -115,7 +113,7 @@ ul {
     cursor: pointer;
 }
 
-.images-complex, .images-classic{
+.images-complex, .images-classic, .play-screen {
     display: flex;
     flex-direction: row;
     border: none;
@@ -124,9 +122,22 @@ ul {
     margin-top: 11%;
 }
 
+.play-screen {
+    padding-bottom: 10%;
+}
+
 .images-classic {
     margin-bottom: 45%;
     margin-top: 22%;
+}
+
+figcaption {
+    font-size: 30pt;
+    text-align: center;
+}
+
+.extra-styling {
+    padding-bottom: 13%;
 }
 
 .reset-complex, .reset-classic {
