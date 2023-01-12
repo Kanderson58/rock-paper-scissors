@@ -24,7 +24,11 @@ class Game {
         this.computer.name = "avatar state"
         this.computer.takeTurn();
         this.selectHumanFighter(event);
-        this.compareFightersClassic()
+        if(this.selectedGame === "classic") {
+            this.compareFightersClassic();
+        } else {
+            this.compareFightersComplex();
+        }
     }
     compareFightersClassic() {
         var human = this.human.chosenFighter;
@@ -48,6 +52,8 @@ class Game {
         if(human === comp) {
             this.declareDraw();
         }
+        console.log("human", this.human.wins)
+        console.log("comp", this.computer.wins)
     }
     compareFightersComplex() {
         var human = this.human.chosenFighter;
@@ -81,6 +87,8 @@ class Game {
         if(human === comp) {
             this.declareDraw();
         }
+        console.log("human", this.human.wins)
+        console.log("comp", this.computer.wins)
     }
     declareDraw() {
         this.draw = true;

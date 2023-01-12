@@ -9,13 +9,19 @@ var humanWinHeader = document.querySelector("#human-win");
 var compWinHeader = document.querySelector("#comp-win");
 var classicGameOption = document.querySelector("#classic");
 var complexGameOption = document.querySelector("#complex");
-var classicGamePlay = document.querySelector("#classicView");
-var complexGamePlay = document.querySelector("#complexView");
+var classicGamePlay = document.querySelector(".classic-game-view");
+var complexGamePlay = document.querySelector(".complex-game-view");
+
+var gamePlay = document.querySelectorAll("#gameView");
 var resetButton = document.querySelectorAll("#resetBtn")
+
 classicGameOption.addEventListener("click", selectClassic);
 complexGameOption.addEventListener("click", selectComplex);
-classicGamePlay.addEventListener("click", function() {currentGame.selectComputerFighter(event)})
-complexGamePlay.addEventListener("click", function() {currentGame.selectComputerFighter(event)})
+for(var i = 0; i < gamePlay.length; i++) {
+    gamePlay[i].addEventListener("click", function() {currentGame.selectComputerFighter(event)})
+}
+// classicGamePlay.addEventListener("click", function() {currentGame.selectComputerFighter(event)})
+// complexGamePlay.addEventListener("click", function() {currentGame.selectComputerFighter(event)})
 // can I pass in just e?
 for(var i = 0; i < resetButton.length; i++) {
     resetButton[i].addEventListener("click", showOptions)
