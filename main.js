@@ -2,10 +2,10 @@
 
 // TODO
 // setTimeout - event listener that fires the timeout on a click.  listener is set to images so whenever that image is clicked, a timeout starts.  During that time, another function runs that shows the fighters side by side and announces the win
-// Add icon and change accordingly on image selection
 // Add current winner so it can be interpolated into where it needs to go
 // Add display for computer win, human win, and draw
-// 
+// Event target clicked image and add hidden to every other image for in-play display
+// Attach icon to winner - change icon?  Cabbage is kind of stupid
 
 var currentGame = new Game;
 
@@ -53,7 +53,7 @@ function selectFighter(event) {
 }
 
 function showBattleMode() {
-    
+
 }
 
 function prepNextRound() {
