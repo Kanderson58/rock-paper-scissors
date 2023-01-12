@@ -9,12 +9,13 @@ class Player {
     }
     takeTurn(event) {
         if((currentGame.selectedGame === "classic" || currentGame.selectedGame === "complex") && this.name === "cabbage merchant") {
-            this.token = "🥬"
+            // this.token = "🥬"
             this.chosenFighter = parseInt(event.target.id);
         } else if(currentGame.selectedGame === "classic" && this.name === "avatar state") {
-            this.token = "☯️"
+            // this.token = "☯️"
             this.getRandomFighter();
         } else if(currentGame.selectedGame === "complex" && this.name === "avatar state") {
+            // this.token = "☯️"
             this.getRandomFighter();
         }
     }
