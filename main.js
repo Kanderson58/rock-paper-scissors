@@ -27,7 +27,7 @@ classicGameOption.addEventListener("click", selectClassic);
 complexGameOption.addEventListener("click", selectComplex);
 for(var i = 0; i < gamePlay.length; i++) {
     gamePlay[i].addEventListener("click", selectFighter)
-    // gamePlay[i].addEventListener("click", function() {setTimeout(prepNextRound, 1500)})
+    gamePlay[i].addEventListener("click", function() {setTimeout(prepNextRound, 1500)})
         // add this in after you figure out the icon bug
 }
 resetButton.addEventListener("click", showOptions)
@@ -116,6 +116,7 @@ function showClassicGame() {
     gameHeader.innerText = 'Choose Your Fighter!'
     // humanFig.classList.add("hidden")
     // compFig.classList.add("hidden")
+    classicResults.innerHTML = ''
     hide(classicResults)
     show(imagesClassic)
     show(resetButton);
@@ -130,6 +131,7 @@ function showComplexGame() {
     gameHeader.innerText = 'Choose Your Fighter!'
     // humanFig.classList.add("hidden")
     // compFig.classList.add("hidden")
+    complexResults.innerHTML = ''
     hide(complexResults)
     show(imagesComplex)
     show(resetButton);
