@@ -113,7 +113,7 @@ ul {
     cursor: pointer;
 }
 
-.images-complex, .images-classic{
+.images-complex, .images-classic, .play-screen {
     display: flex;
     flex-direction: row;
     border: none;

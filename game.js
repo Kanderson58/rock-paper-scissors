@@ -62,9 +62,9 @@ class Game {
             this.declareDraw();
             this.currentWin = "Draw";
         }
-        console.log("human", this.human.wins)
-        console.log("comp", this.computer.wins)
-        console.log(this.currentWin)
+        // console.log("human", this.human.wins)
+        // console.log("comp", this.computer.wins)
+        // console.log(this.currentWin)
     }
     compareFightersComplex() {
         var human = this.human.chosenFighter;
