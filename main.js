@@ -30,7 +30,7 @@ complexGameOption.addEventListener("click", selectComplex);
 for(var i = 0; i < gamePlay.length; i++) {
     gamePlay[i].addEventListener("click", selectFighter)
     // gamePlay[i].addEventListener("click", showBattleMode)
-    gamePlay[i].addEventListener("click", function() {setTimeout(prepNextRound, 3000)})
+    gamePlay[i].addEventListener("click", function() {setTimeout(prepNextRound, 2000)})
 }
 for(var i = 0; i < resetButton.length; i++) {
     resetButton[i].addEventListener("click", showOptions)
@@ -65,16 +65,34 @@ function showBattleMode() {
     } else {
         gameHeader.innerText ='It\'s a draw!'
     }
-    var compFighter = imageCodes[currentGame.computer.chosenFighter]
-    var humanFighter = imageCodes[currentGame.human.chosenFighter]
     if(currentGame.selectedGame === "classic") {
         hide(imagesClassic)
         show(classicResults)
-        classicResults.innerHTML = `${humanFighter} ${compFighter}`
+        addTokens(classicResults)
+        showWinToken()
     } else {
         hide(imagesComplex)
         show(complexResults)
-        complexResults.innerHTML = `${humanFighter} ${compFighter}`
+        addTokens(complexResults)
+        showWinToken()
+    }
+}
+
+function addTokens(results) {
+    var compFighter = imageCodes[currentGame.computer.chosenFighter]
+    var humanFighter = imageCodes[currentGame.human.chosenFighter]
+    results.innerHTML = `<figure>${humanFighter}<figcaption id="humanFig" class="hidden">🥬</figcaption></figure><figure>${compFighter}<figcaption id="compFig" class="hidden">☯️</figcaption></figure>`
+}
+
+function showWinToken() {
+    var humanFig = document.querySelector("#humanFig")
+    var compFig = document.querySelector("#compFig")
+    if(currentGame.currentWin === "Person") {
+        show(humanFig)
+        compFig.parentNode.classList.add("extra-styling")
+    } else if(currentGame.currentWin === "Computer") {
+        show(compFig)
+        humanFig.parentNode.classList.add("extra-styling")
     }
 }
 
