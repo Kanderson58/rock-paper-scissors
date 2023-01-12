@@ -2,8 +2,8 @@
 
 // TODO
 // move image codes to own file
-// why is the reset causing the icon not to show up for complex?
-// shows undefined bc the listener is on the DIV
+// why is the reset causing the icon not to show up for complex?  complex win icon doesn't work when going back and forth between game views - BUT only after the other view is selected
+// does chosenImg need to be passed in so many things?
 
 var currentGame = new Game;
 var imageCodes = ['filler', '<img src="./assets/happy-rocks.png" alt="rock" class="fighter" id="1">', '<img src="./assets/happy-paper.png" alt="paper" class="fighter" id="2">', '<img src="./assets/happy-scissors.png" alt="scissors" class="fighter" id="3">', '<img src="./assets/water.png" alt="water" class="fighter" id="4">', '<img src="./assets/earth.png" alt="earth" class="fighter" id="5">', '<img src="./assets/avatar.png" alt="avatar" class="fighter" id="6">', '<img src="./assets/fire.png" alt="fire" class="fighter" id="7">', '<img src="./assets/air.png" alt="air" class="fighter" id="8">']
@@ -27,7 +27,8 @@ classicGameOption.addEventListener("click", selectClassic);
 complexGameOption.addEventListener("click", selectComplex);
 for(var i = 0; i < gamePlay.length; i++) {
     gamePlay[i].addEventListener("click", selectFighter)
-    gamePlay[i].addEventListener("click", function() {setTimeout(prepNextRound, 1500)})
+    // gamePlay[i].addEventListener("click", function() {setTimeout(prepNextRound, 1500)})
+        // add this in after you figure out the icon bug
 }
 resetButton.addEventListener("click", showOptions)
 
@@ -50,7 +51,9 @@ function selectComplex() {
 }
 
 function selectFighter(event) {
-    currentGame.selectComputerFighter(event)
+    // currentGame.human.chosenFighter = parseInt(event.target.id)
+    // would this work???  would take out logic from takeTurn method??? add this in after you figure out icon bug
+    currentGame.selectComputerFighter(event.target.id)
     showBattleMode()
 }
 
@@ -75,8 +78,11 @@ function showBattleMode() {
 function addTokens(results) {
     var compFighter = imageCodes[currentGame.computer.chosenFighter]
     var humanFighter = imageCodes[currentGame.human.chosenFighter]
-    console.log("cabbage")
     results.innerHTML = `<figure>${humanFighter}<figcaption id="humanFig" class="hidden">${currentGame.human.token}</figcaption></figure><figure>${compFighter}<figcaption id="compFig" class="hidden">${currentGame.computer.token}</figcaption></figure>`
+    var humanFig = document.querySelector("#humanFig")
+    var compFig = document.querySelector("#compFig")
+    console.log(humanFig)
+    console.log(compFig)
     showWinToken()
 }
 
@@ -84,34 +90,34 @@ function showWinToken() {
     var humanFig = document.querySelector("#humanFig")
     var compFig = document.querySelector("#compFig")
     if(currentGame.currentWin === "Person") {
-        console.log(humanFig)
-        compFig.parentNode.classList.add("extra-styling")
-        show(humanFig)
+        // console.log(humanFig)
+        humanFig.classList.remove("hidden")
+        // console.log(humanFig)
     } else if(currentGame.currentWin === "Computer") {
-        console.log(compFig)
-        humanFig.parentNode.classList.add("extra-styling")
-        show(compFig)
+        // console.log(compFig)
+        compFig.classList.remove("hidden")
+        // console.log(humanFig)
     }
 }
 
 function prepNextRound() {
     if(currentGame.selectedGame === "classic") {
-        show(imagesClassic)
-        hide(classicResults)
+        showClassicGame()
     } else {
-        show(imagesComplex)
-        hide(complexResults)
+        showComplexGame()
     }
-    gameHeader.innerText ='Choose Your Fighter!'
     compWins.innerText = `Wins: ${currentGame.computer.wins}`
     humanWins.innerText = `Wins: ${currentGame.human.wins}`
-    for(var i = 0; i < fighters.length; i++) {
-        show(fighters[i])
-    }
 }
 
 function showClassicGame() {
+    // var humanFig = document.querySelector("#humanFig")
+    // var compFig = document.querySelector("#compFig")
     gameHeader.innerText = 'Choose Your Fighter!'
+    // humanFig.classList.add("hidden")
+    // compFig.classList.add("hidden")
+    hide(classicResults)
+    show(imagesClassic)
     show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
@@ -119,7 +125,13 @@ function showClassicGame() {
 }
 
 function showComplexGame() {
+    // var humanFig = document.querySelector("#humanFig")
+    // var compFig = document.querySelector("#compFig")
     gameHeader.innerText = 'Choose Your Fighter!'
+    // humanFig.classList.add("hidden")
+    // compFig.classList.add("hidden")
+    hide(complexResults)
+    show(imagesComplex)
     show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);

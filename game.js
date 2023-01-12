@@ -17,16 +17,16 @@ class Game {
             this.fighters = [4, 5, 6, 7, 8];
         }
     }
-    selectHumanFighter(event) {
+    selectHumanFighter(chosenImg) {
         this.human.name = "cabbage merchant"
         this.human.token = "🥬";
-        this.human.takeTurn(event);
+        this.human.takeTurn(chosenImg);
     }
-    selectComputerFighter(event) {
+    selectComputerFighter(chosenImg) {
         this.computer.name = "avatar state"
         this.computer.token = "☯️";
         this.computer.takeTurn();
-        this.selectHumanFighter(event);
+        this.selectHumanFighter(chosenImg);
         if(this.selectedGame === "classic") {
             this.compareFightersClassic();
         } else {
@@ -108,19 +108,11 @@ class Game {
         if(human === comp) {
             this.declareDraw();
         }
-        console.log("human", this.human.wins)
-        console.log("comp", this.computer.wins)
-        console.log(this.currentWin)
+        // console.log("human", this.human.wins)
+        // console.log("comp", this.computer.wins)
+        // console.log(this.currentWin)
     }
     declareDraw() {
         this.currentWin = "Draw";
-    }
-    declareHumanWinner() {
-        // this.human.wins ++
-        // MAIN: wins <p> should always be displaying current array of this.human.wins
-    }
-    declareComputerWinner() {
-        // this.computer.wins ++
-        // MAIN: wins <p> should always be displaying current array of this.computer.wins
     }
 }

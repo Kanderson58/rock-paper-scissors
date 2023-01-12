@@ -7,10 +7,10 @@ class Player {
        this.wins = 0;
        this.chosenFighter; 
     }
-    takeTurn(event) {
+    takeTurn(chosenImg) {
         if((currentGame.selectedGame === "classic" || currentGame.selectedGame === "complex") && this.name === "cabbage merchant") {
             // this.token = "🥬"
-            this.chosenFighter = parseInt(event.target.id);
+            this.chosenFighter = parseInt(chosenImg);
         } else if(currentGame.selectedGame === "classic" && this.name === "avatar state") {
             // this.token = "☯️"
             this.getRandomFighter();
