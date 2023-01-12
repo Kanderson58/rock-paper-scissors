@@ -18,10 +18,12 @@ class Game {
     }
     selectHumanFighter(event) {
         this.human.name = "cabbage merchant"
+        this.human.token = "🥬";
         this.human.takeTurn(event);
     }
     selectComputerFighter(event) {
         this.computer.name = "avatar state"
+        this.computer.token = "☯️";
         this.computer.takeTurn();
         this.selectHumanFighter(event);
         if(this.selectedGame === "classic") {

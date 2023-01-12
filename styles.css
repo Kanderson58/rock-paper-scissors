@@ -16,7 +16,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    width: 70%;
+    width: 66%;
     height: 100%;
 }
 
@@ -26,7 +26,7 @@ h1 {
 }
 
 section {
-    width: 15%;
+    width: 17%;
     height: 100%;
     background-color: #face8d;
 }
@@ -34,11 +34,24 @@ section {
 img {
     height: 150px;
     width: 150px;
-    border-radius: 5px;;
+    border-radius: 5px;
+}
+
+@keyframes bounceIn {
+    100% {
+      transform: scale(1.2);
+    }
+  }
+
+img:hover {
+    cursor: pointer;
+    animation-duration: 2s;
+    animation-name: bounceIn;
+    animation-fill-mode: forwards;
 }
 
 h2, label {
-    font-size: 25pt;
+    font-size: 20pt;
     margin: 0;
 }
 
@@ -65,10 +78,6 @@ div, .reset-button {
     border-radius: 5px;
 }
 
-div:hover::not(.complex-game-view, .classic-game-view) {
-    background-color: #e37120;
-    transition: 1.5s;
-}
 
 .classic-game {
     width: 25%
@@ -98,6 +107,12 @@ ul {
 .classic-game-view, .complex-game-view, .results-view {
     border: none;
     background: none;
+}
+
+.classic-game:hover, .complex-game:hover, .reset-button:hover {
+    background-color: #e37120;
+    transition: 1.5s;
+    cursor: pointer;
 }
 
 .images-complex, .images-classic{

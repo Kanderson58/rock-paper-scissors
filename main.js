@@ -1,5 +1,9 @@
 // STOP!  Is what I'm doing data related or DOM related?  Is the data changing in this file?  Are you using methods - i.e. splice, push?  If YES, go to your classes!
 
+// TODO
+// setTimeout - event listener that fires the timeout on a click.  listener is set to images so whenever that image is clicked, a timeout starts.  During that time, another function runs that shows the fighters side by side and announces the win
+// Add icon and change accordingly on image selection
+
 var currentGame = new Game;
 
 var gameHeader = document.querySelector("#game-choice");
@@ -7,6 +11,8 @@ var classicGameOption = document.querySelector("#classic");
 var complexGameOption = document.querySelector("#complex");
 var classicGamePlay = document.querySelector(".classic-game-view");
 var complexGamePlay = document.querySelector(".complex-game-view");
+var compWins = document.querySelector("#compWins");
+var humanWins = document.querySelector("#humanWins");
 var gamePlay = document.querySelectorAll("#gameView");
 var resetButton = document.querySelectorAll("#resetBtn")
 
@@ -14,11 +20,11 @@ classicGameOption.addEventListener("click", selectClassic);
 complexGameOption.addEventListener("click", selectComplex);
 for(var i = 0; i < gamePlay.length; i++) {
     gamePlay[i].addEventListener("click", selectFighter)
+    gamePlay[i].addEventListener("click", function() {setTimeout(displayWins, 3000)})
 }
 for(var i = 0; i < resetButton.length; i++) {
     resetButton[i].addEventListener("click", showOptions)
 }
-// setTimeout - event listener that fires the timeout on a click.  listener is set to images so whenever that image is clicked, a timeout starts.  During that time, another function runs that shows the fighters side by side and announces the win
 
 function hide(element) {
     element.classList.add("hidden");
@@ -42,6 +48,12 @@ function selectFighter(event) {
     currentGame.selectComputerFighter(event)
 }
 
+
+function displayWins() {
+    compWins.innerText = `Wins: ${currentGame.computer.wins}`
+    humanWins.innerText = `Wins: ${currentGame.human.wins}`
+}
+
 function showClassicGame() {
     gameHeader.innerText ='Choose Your Fighter!'
     gameHeader.id = "fighter-choice"
@@ -57,7 +69,6 @@ function showComplexGame() {
     hide(complexGameOption);
     show(complexGamePlay);
 }
-
 
 function showOptions() {
     gameHeader.innerText ='Choose Your Game!'
