@@ -37,16 +37,16 @@ img {
     border-radius: 5px;
 }
 
-@keyframes bounceIn {
+@keyframes zoom {
     100% {
       transform: scale(1.2);
     }
   }
 
-img:hover {
+.fighter:hover {
     cursor: pointer;
-    animation-duration: 2s;
-    animation-name: bounceIn;
+    animation-duration: 1s;
+    animation-name: zoom;
     animation-fill-mode: forwards;
 }
 

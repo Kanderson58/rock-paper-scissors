@@ -3,6 +3,9 @@
 // TODO
 // setTimeout - event listener that fires the timeout on a click.  listener is set to images so whenever that image is clicked, a timeout starts.  During that time, another function runs that shows the fighters side by side and announces the win
 // Add icon and change accordingly on image selection
+// Add current winner so it can be interpolated into where it needs to go
+// Add display for computer win, human win, and draw
+// 
 
 var currentGame = new Game;
 
@@ -20,7 +23,7 @@ classicGameOption.addEventListener("click", selectClassic);
 complexGameOption.addEventListener("click", selectComplex);
 for(var i = 0; i < gamePlay.length; i++) {
     gamePlay[i].addEventListener("click", selectFighter)
-    gamePlay[i].addEventListener("click", function() {setTimeout(displayWins, 3000)})
+    gamePlay[i].addEventListener("click", function() {setTimeout(prepNextRound, 3000)})
 }
 for(var i = 0; i < resetButton.length; i++) {
     resetButton[i].addEventListener("click", showOptions)
@@ -46,10 +49,14 @@ function selectComplex() {
 
 function selectFighter(event) {
     currentGame.selectComputerFighter(event)
+    showBattleMode()
 }
 
+function showBattleMode() {
+    
+}
 
-function displayWins() {
+function prepNextRound() {
     compWins.innerText = `Wins: ${currentGame.computer.wins}`
     humanWins.innerText = `Wins: ${currentGame.human.wins}`
 }
