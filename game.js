@@ -10,6 +10,8 @@ class Game {
         this.currentWin = "";
     }
     selectGameSetup(type){
+        this.human.name = "cabbage merchant"
+        this.computer.name = "avatar state"
         this.selectedGame = type;
         if(this.selectedGame === "classic") {
             this.fighters = [1, 2, 3];
@@ -17,16 +19,7 @@ class Game {
             this.fighters = [4, 5, 6, 7, 8];
         }
     }
-    selectHumanFighter(event) {
-        this.human.name = "cabbage merchant"
-        this.human.token = "🥬";
-        this.human.takeTurn(event);
-    }
-    selectComputerFighter(event) {
-        this.computer.name = "avatar state"
-        this.computer.token = "☯️";
-        this.computer.takeTurn();
-        this.selectHumanFighter(event);
+    selectComputerFighter() {
         if(this.selectedGame === "classic") {
             this.compareFightersClassic();
         } else {
@@ -62,8 +55,8 @@ class Game {
             this.declareDraw();
             this.currentWin = "Draw";
         }
-        // console.log("human", this.human.wins)
-        // console.log("comp", this.computer.wins)
+        // console.log("human", this.human.chosenFighter)
+        // console.log("comp", this.computer.chosenFighter)
         // console.log(this.currentWin)
     }
     compareFightersComplex() {
@@ -107,21 +100,12 @@ class Game {
         }
         if(human === comp) {
             this.declareDraw();
-            this.currentWin = "Draw";
         }
-        console.log("human", this.human.wins)
-        console.log("comp", this.computer.wins)
-        console.log(this.currentWin)
+        // console.log("human", this.human.chosenFighter)
+        // console.log("comp", this.computer.chosenFighter)
+        // console.log(this.currentWin)
     }
     declareDraw() {
-        this.draw = true;
-    }
-    declareHumanWinner() {
-        // this.human.wins ++
-        // MAIN: wins <p> should always be displaying current array of this.human.wins
-    }
-    declareComputerWinner() {
-        // this.computer.wins ++
-        // MAIN: wins <p> should always be displaying current array of this.computer.wins
+        this.currentWin = "Draw";
     }
 }
