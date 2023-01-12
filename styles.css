@@ -48,7 +48,7 @@ img {
     animation-fill-mode: forwards;
 }
 
-h2, label {
+h2 {
     font-size: 20pt;
     margin: 0;
 }
@@ -132,7 +132,7 @@ ul {
 }
 
 figcaption {
-    font-size: 30pt;
+    font-size: 20pt;
     text-align: center;
 }
 
