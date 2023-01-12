@@ -25,9 +25,11 @@ class Game {
         this.computer.takeTurn();
         this.selectHumanFighter(event);
         if(this.selectedGame === "classic") {
-            this.compareFightersClassic();
+            this.compareFightersClassic()
+            // this.compareFightersClassic();
         } else {
-            this.compareFightersComplex();
+            this.compareFightersComplex()
+            // this.compareFightersComplex();
         }
     }
     compareFightersClassic() {
