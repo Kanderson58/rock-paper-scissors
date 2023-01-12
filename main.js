@@ -23,7 +23,7 @@ var complexResults = document.querySelector("#complexPlay")
 var compWins = document.querySelector("#compWins");
 var humanWins = document.querySelector("#humanWins");
 var gamePlay = document.querySelectorAll("#gameView");
-var resetButton = document.querySelectorAll("#resetBtn")
+var resetButton = document.querySelector("#resetBtn")
 
 classicGameOption.addEventListener("click", selectClassic);
 complexGameOption.addEventListener("click", selectComplex);
@@ -32,9 +32,7 @@ for(var i = 0; i < gamePlay.length; i++) {
     // gamePlay[i].addEventListener("click", showBattleMode)
     gamePlay[i].addEventListener("click", function() {setTimeout(prepNextRound, 2000)})
 }
-for(var i = 0; i < resetButton.length; i++) {
-    resetButton[i].addEventListener("click", showOptions)
-}
+resetButton.addEventListener("click", showOptions)
 
 function hide(element) {
     element.classList.add("hidden");
@@ -114,6 +112,7 @@ function prepNextRound() {
 
 function showClassicGame() {
     gameHeader.innerText ='Choose Your Fighter!'
+    show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
     show(classicGamePlay);
@@ -121,6 +120,7 @@ function showClassicGame() {
 
 function showComplexGame() {
     gameHeader.innerText ='Choose Your Fighter!'
+    show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
     show(complexGamePlay);
@@ -133,4 +133,5 @@ function showOptions() {
     show(complexGameOption);
     hide(classicGamePlay);
     hide(complexGamePlay);
+    hide(resetButton);
 }

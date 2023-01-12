@@ -107,14 +107,13 @@ class Game {
         }
         if(human === comp) {
             this.declareDraw();
-            this.currentWin = "Draw";
         }
         console.log("human", this.human.wins)
         console.log("comp", this.computer.wins)
         console.log(this.currentWin)
     }
     declareDraw() {
-        this.draw = true;
+        this.currentWin = "Draw";
     }
     declareHumanWinner() {
         // this.human.wins ++

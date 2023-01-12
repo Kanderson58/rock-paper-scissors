@@ -3,7 +3,7 @@
 class Player {
     constructor() {
        this.name;
-       this.token; // icon by the name
+       this.token;
        this.wins = 0;
        this.chosenFighter; 
     }
