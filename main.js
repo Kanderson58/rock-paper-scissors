@@ -28,7 +28,6 @@ complexGameOption.addEventListener("click", selectComplex);
 for(var i = 0; i < gamePlay.length; i++) {
     gamePlay[i].addEventListener("click", selectFighter)
     gamePlay[i].addEventListener("click", function() {setTimeout(prepNextRound, 1500)})
-        // add this in after you figure out the icon bug
 }
 resetButton.addEventListener("click", showOptions)
 
@@ -51,9 +50,9 @@ function selectComplex() {
 }
 
 function selectFighter(event) {
-    // currentGame.human.chosenFighter = parseInt(event.target.id)
-    // would this work???  would take out logic from takeTurn method??? add this in after you figure out icon bug
-    currentGame.selectComputerFighter(event.target.id)
+    currentGame.human.takeTurn(event.target.id)
+    currentGame.computer.takeTurn()
+    currentGame.selectComputerFighter()
     showBattleMode()
 }
 
@@ -67,7 +66,6 @@ function showBattleMode() {
         hide(imagesClassic)
         show(classicResults)
         addTokens(classicResults)
-        // showWinToken()
     } else {
         hide(imagesComplex)
         show(complexResults)
@@ -81,8 +79,6 @@ function addTokens(results) {
     results.innerHTML = `<figure>${humanFighter}<figcaption id="humanFig" class="hidden">${currentGame.human.token}</figcaption></figure><figure>${compFighter}<figcaption id="compFig" class="hidden">${currentGame.computer.token}</figcaption></figure>`
     var humanFig = document.querySelector("#humanFig")
     var compFig = document.querySelector("#compFig")
-    console.log(humanFig)
-    console.log(compFig)
     showWinToken()
 }
 
@@ -90,13 +86,9 @@ function showWinToken() {
     var humanFig = document.querySelector("#humanFig")
     var compFig = document.querySelector("#compFig")
     if(currentGame.currentWin === "Person") {
-        // console.log(humanFig)
         humanFig.classList.remove("hidden")
-        // console.log(humanFig)
     } else if(currentGame.currentWin === "Computer") {
-        // console.log(compFig)
         compFig.classList.remove("hidden")
-        // console.log(humanFig)
     }
 }
 
@@ -111,11 +103,7 @@ function prepNextRound() {
 }
 
 function showClassicGame() {
-    // var humanFig = document.querySelector("#humanFig")
-    // var compFig = document.querySelector("#compFig")
     gameHeader.innerText = 'Choose Your Fighter!'
-    // humanFig.classList.add("hidden")
-    // compFig.classList.add("hidden")
     classicResults.innerHTML = ''
     hide(classicResults)
     show(imagesClassic)
@@ -126,11 +114,7 @@ function showClassicGame() {
 }
 
 function showComplexGame() {
-    // var humanFig = document.querySelector("#humanFig")
-    // var compFig = document.querySelector("#compFig")
     gameHeader.innerText = 'Choose Your Fighter!'
-    // humanFig.classList.add("hidden")
-    // compFig.classList.add("hidden")
     complexResults.innerHTML = ''
     hide(complexResults)
     show(imagesComplex)
