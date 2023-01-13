@@ -39,7 +39,31 @@ img {
 
 @keyframes zoom {
     100% {transform: scale(1.2);}
-  }
+}
+
+@keyframes emphasize {
+    0% { 
+        color:#fbd0a2; font-size: 60pt;
+    }
+    25% {
+        color:#face8d;
+    }
+    50% { 
+        color:#e37120;
+    }
+    75% {
+        color:#a15419
+    }
+    100% { 
+        color:#964637;
+    }
+}
+
+.current-wins {
+    animation-name: emphasize;
+    animation-duration: 1s;
+    color: black;
+}
 
 .fighter:hover {
     cursor: pointer;
@@ -76,7 +100,6 @@ div, .reset-button {
     border-radius: 5px;
 }
 
-
 .classic-game {
     width: 25%
 }
@@ -102,11 +125,6 @@ ul {
     padding-bottom: 7%;
 }
 
-.classic-game-view, .complex-game-view {
-    border: none;
-    background: none;
-}
-
 .classic-game:hover, .complex-game:hover, .reset-button:hover {
     background-color: #e37120;
     transition: 1.5s;
@@ -118,22 +136,27 @@ ul {
     flex-direction: row;
     border: none;
     background: none;
-    margin-bottom: 30%;
-    margin-top: 11%;
+    margin-bottom: 10%;
 }
 
 .play-screen {
     padding-bottom: 10%;
 }
 
-.images-classic {
-    margin-bottom: 45%;
-    margin-top: 22%;
-}
-
 figcaption {
     font-size: 20pt;
     text-align: center;
+}
+
+#humanFig, #compFig {
+    font-size: 30pt;
+    position: relative;
+    top: -40px;
+    padding: 1%;
+}
+
+.extra-styling {
+    margin-top: 20%;
 }
 
 .reset-complex, .reset-classic {
