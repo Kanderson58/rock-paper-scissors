@@ -136,7 +136,7 @@ ul {
     flex-direction: row;
     border: none;
     background: none;
-
+    margin-bottom: 10%;
 }
 
 .play-screen {
@@ -150,8 +150,13 @@ figcaption {
 
 #humanFig, #compFig {
     font-size: 30pt;
-    margin-top: -5%;
+    position: relative;
+    top: -40px;
     padding: 1%;
+}
+
+.extra-styling {
+    margin-top: 20%;
 }
 
 .reset-complex, .reset-classic {
