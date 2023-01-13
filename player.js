@@ -20,6 +20,7 @@ class Player {
         }
     }
     getRandomFighter() {
+        // can I use a range?
         this.chosenFighter = currentGame.fighters[Math.floor(Math.random() * currentGame.fighters.length)];
     }
 }

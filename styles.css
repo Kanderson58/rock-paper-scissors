@@ -76,7 +76,6 @@ div, .reset-button {
     border-radius: 5px;
 }
 
-
 .classic-game {
     width: 25%
 }
@@ -134,6 +133,12 @@ ul {
 figcaption {
     font-size: 20pt;
     text-align: center;
+}
+
+#humanFig, #compFig {
+    font-size: 30pt;
+    margin-top: -5%;
+    padding: 1%;
 }
 
 .reset-complex, .reset-classic {
