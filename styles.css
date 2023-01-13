@@ -165,9 +165,11 @@ figcaption {
 
 .reset-button {
     font-family: 'Herculanum LT Pro', sans-serif;
-    font-size: 20pt;
-    width: 400px;
+    font-size: 15pt;
+    background-color:#fbd0a2;
+    width: 200px;
     padding: 3%;
+    margin-top: 10%;
 }
 
 .hidden {

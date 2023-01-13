@@ -115,7 +115,7 @@ function showClassicGame() {
     imagesClassic.innerHTML += `${imageCodes[0]}${imageCodes[1]}${imageCodes[2]}`;
     hide(classicResults);
     show(imagesClassic);
-    show(resetButton);
+    // show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
 }
@@ -127,7 +127,7 @@ function showComplexGame() {
     imagesComplex.innerHTML += `${imageCodes[3]}${imageCodes[4]}${imageCodes[5]}${imageCodes[6]}${imageCodes[7]}`;
     hide(complexResults);
     show(imagesComplex);
-    show(resetButton);
+    // show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
 }
