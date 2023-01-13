@@ -173,8 +173,22 @@ figcaption {
 }
 
 .sozin-comet {
+    width: 100%;
+    height: 100%;
+    padding-left: 5%;
+}
+
+.comet-path {
     width: 800px;
     height: 75px;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("./assets/comet-path.png");
 }
 
 .sozin-figcap {
