@@ -83,9 +83,25 @@ function showWinToken() {
     var compFig = document.querySelector("#compFig")
     if(currentGame.currentWin === "Person") {
         show(humanFig)
+        showWinCount()
     } else if(currentGame.currentWin === "Computer") {
         show(compFig)
+        showWinCount()
     }
+}
+
+function showWinCount() {
+    if(currentGame.currentWin === "Computer") {
+    hide(compWins)
+    void compWins.offsetWidth;
+    show(compWins)
+    compWins.innerText = `Wins: ${currentGame.computer.wins}`
+    } else if(currentGame.currentWin === "Person") {
+    hide(humanWins)
+    void humanWins.offsetWidth;
+    show(humanWins)
+    humanWins.innerText = `Wins: ${currentGame.human.wins}`
+    } 
 }
 
 function prepNextRound() {
@@ -95,8 +111,6 @@ function prepNextRound() {
     } else {
         showComplexGame()
     }
-    compWins.innerText = `Wins: ${currentGame.computer.wins}`
-    humanWins.innerText = `Wins: ${currentGame.human.wins}`
 }
 
 function showClassicGame() {

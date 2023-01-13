@@ -39,7 +39,31 @@ img {
 
 @keyframes zoom {
     100% {transform: scale(1.2);}
-  }
+}
+
+@keyframes emphasize {
+    0% { 
+        color:#fbd0a2; font-size: 60pt;
+    }
+    25% {
+        color:#face8d;
+    }
+    50% { 
+        color:#e37120;
+    }
+    75% {
+        color:#a15419
+    }
+    100% { 
+        color:#964637;
+    }
+}
+
+.current-wins {
+    animation-name: emphasize;
+    animation-duration: 1s;
+    color: black;
+}
 
 .fighter:hover {
     cursor: pointer;

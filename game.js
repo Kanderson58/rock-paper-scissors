@@ -53,7 +53,6 @@ class Game {
         }
         if(human === comp) {
             this.declareDraw();
-            this.currentWin = "Draw";
         }
         // console.log("human", this.human.chosenFighter)
         // console.log("comp", this.computer.chosenFighter)
