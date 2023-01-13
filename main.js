@@ -16,6 +16,8 @@ var compWins = document.querySelector('#compWins');
 var humanWins = document.querySelector('#humanWins');
 var gamePlay = document.querySelectorAll('#imageBlock');
 var resetButton = document.querySelector('#resetBtn');
+var sozinComet = document.querySelector('#sozinComet');
+var sozinCaption = document.querySelector('#sozinCaption');
 
 classicGameOption.addEventListener('click', selectClassic);
 complexGameOption.addEventListener('click', selectComplex);
