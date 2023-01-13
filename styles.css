@@ -125,11 +125,6 @@ ul {
     padding-bottom: 7%;
 }
 
-.classic-game-view, .complex-game-view {
-    border: none;
-    background: none;
-}
-
 .classic-game:hover, .complex-game:hover, .reset-button:hover {
     background-color: #e37120;
     transition: 1.5s;
@@ -141,17 +136,11 @@ ul {
     flex-direction: row;
     border: none;
     background: none;
-    margin-bottom: 30%;
-    margin-top: 11%;
+
 }
 
 .play-screen {
     padding-bottom: 10%;
-}
-
-.images-classic {
-    margin-bottom: 45%;
-    margin-top: 22%;
 }
 
 figcaption {

@@ -8,14 +8,14 @@ class Player {
        this.chosenFighter; 
     }
     takeTurn(chosenImg) {
-        if((currentGame.selectedGame === "classic" || currentGame.selectedGame === "complex") && this.name === "cabbage merchant") {
-            this.token = "🥬"
+        if((currentGame.selectedGame === 'classic' || currentGame.selectedGame === 'complex') && this.name === 'cabbage merchant') {
+            this.token = '🥬'
             this.chosenFighter = parseInt(chosenImg);
-        } else if(currentGame.selectedGame === "classic" && this.name === "avatar state") {
-            this.token = "☯️"
+        } else if(currentGame.selectedGame === 'classic' && this.name === 'avatar state') {
+            this.token = '☯️'
             this.getRandomFighter(3, 0);
-        } else if(currentGame.selectedGame === "complex" && this.name === "avatar state") {
-            this.token = "☯️"
+        } else if(currentGame.selectedGame === 'complex' && this.name === 'avatar state') {
+            this.token = '☯️'
             this.getRandomFighter(8, 3);
         }
     }
