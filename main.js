@@ -1,8 +1,5 @@
 // STOP!  Is what I'm doing data related or DOM related?  Is the data changing in this file?  Are you using methods - i.e. splice, push?  If YES, go to your classes!
 
-// TODO
-// move image codes to own file
-
 var currentGame = new Game;
 
 var gameHeader = document.querySelector("#gameHeader");
@@ -23,8 +20,8 @@ var resetButton = document.querySelector("#resetBtn");
 classicGameOption.addEventListener("click", selectClassic);
 complexGameOption.addEventListener("click", selectComplex);
 for(var i = 0; i < gamePlay.length; i++) {
-    gamePlay[i].addEventListener("click", selectFighter)
-    gamePlay[i].addEventListener("click", function() {setTimeout(prepNextRound, 1500)})
+    gamePlay[i].addEventListener("click", selectFighter);
+    gamePlay[i].addEventListener("click", function() {setTimeout(prepNextRound, 1500)});
 }
 resetButton.addEventListener("click", showOptions)
 
@@ -118,6 +115,8 @@ function showClassicGame() {
     classicResults.innerHTML = ''
     hide(classicResults)
     show(imagesClassic)
+    imagesClassic.innerHTML = ''
+    imagesClassic.innerHTML += `${imageCodes[0]}${imageCodes[1]}${imageCodes[2]}`
     show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
@@ -129,6 +128,8 @@ function showComplexGame() {
     complexResults.innerHTML = ''
     hide(complexResults)
     show(imagesComplex)
+    imagesComplex.innerHTML = ''
+    imagesComplex.innerHTML += `${imageCodes[3]}${imageCodes[4]}${imageCodes[5]}${imageCodes[6]}${imageCodes[7]}`
     show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);

@@ -13,14 +13,14 @@ class Player {
             this.chosenFighter = parseInt(chosenImg);
         } else if(currentGame.selectedGame === "classic" && this.name === "avatar state") {
             this.token = "☯️"
-            this.getRandomFighter();
+            this.getRandomFighter(3, 0);
         } else if(currentGame.selectedGame === "complex" && this.name === "avatar state") {
             this.token = "☯️"
-            this.getRandomFighter();
+            this.getRandomFighter(8, 3);
         }
     }
-    getRandomFighter() {
+    getRandomFighter(max, min) {
         // can I use a range?
-        this.chosenFighter = currentGame.fighters[Math.floor(Math.random() * currentGame.fighters.length)];
+        this.chosenFighter = currentGame.fighters[Math.floor(Math.random() * (max - min))];
     }
 }
