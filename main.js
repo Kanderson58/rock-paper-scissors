@@ -77,13 +77,18 @@ function addTokens(results) {
     showWinToken();
 }
 
+var cometPosition = 0;
 function showWinToken() {
     var humanFig = document.querySelector('#humanFig');
     var compFig = document.querySelector('#compFig');
     if(currentGame.currentWin === 'Person') {
+        cometPosition += 50
+        sozinComet.style['object-position'] = `${cometPosition}px`
         show(humanFig);
         showWinCount();
     } else if(currentGame.currentWin === 'Computer') {
+        cometPosition = cometPosition - 50
+        sozinComet.style['object-position'] = `${cometPosition}px`
         show(compFig);
         showWinCount();
     }
