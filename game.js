@@ -2,16 +2,14 @@
 
 class Game {
     constructor() {
-        this.human = new Player;
-        this.computer = new Player;
+        this.human = new Player('cabbage merchant', '🥬');
+        this.computer = new Player('avatar state', '☯️');
         this.fighters = [];
         this.selectedGame;
         this.draw = true;
         this.currentWin = '';
     }
     selectGameSetup(type){
-        this.human.name = 'cabbage merchant'
-        this.computer.name = 'avatar state'
         this.selectedGame = type;
         if(this.selectedGame === 'classic') {
             this.fighters = [0, 1, 2];

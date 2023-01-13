@@ -1,11 +1,13 @@
 // STOP!  Is what I'm doing data related or DOM related?  Is the data changing in this file?  Are you using methods - i.e. splice, push?  If YES, go to your classes!
 
+// Extra features ideas:
+// Sozin's comet: each time the comp wins, it gets closer, and each time it loses, it gets further away
+
 var currentGame = new Game;
 
 var gameHeader = document.querySelector('#gameHeader');
 var classicGameOption = document.querySelector('#classic');
 var complexGameOption = document.querySelector('#complex');
-var fighters = document.querySelectorAll('.fighter');
 var imagesComplex = document.querySelector('.images-complex');
 var imagesClassic = document.querySelector('.images-classic')
 var classicResults = document.querySelector('#classicPlay');
@@ -115,7 +117,6 @@ function showClassicGame() {
     imagesClassic.innerHTML += `${imageCodes[0]}${imageCodes[1]}${imageCodes[2]}`;
     hide(classicResults);
     show(imagesClassic);
-    // show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
 }
@@ -127,7 +128,6 @@ function showComplexGame() {
     imagesComplex.innerHTML += `${imageCodes[3]}${imageCodes[4]}${imageCodes[5]}${imageCodes[6]}${imageCodes[7]}`;
     hide(complexResults);
     show(imagesComplex);
-    // show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
 }
