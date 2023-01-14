@@ -1,7 +1,6 @@
 // STOP!  Is what I'm doing data related or DOM related?  Is the data changing in this file?  Are you using methods - i.e. splice, push?  If YES, go to your classes!
 
-// Extra features ideas:
-// Sozin's comet: each time the comp wins, it gets closer, and each time it loses, it gets further away
+// change query selects to get element by ID
 
 var currentGame = new Game;
 var cometPosition = 0;
@@ -20,6 +19,7 @@ var resetButton = document.querySelector('#resetBtn');
 var sozinComet = document.querySelector('#sozinComet');
 var sozinCaption = document.querySelector('#sozinCaption');
 var cometOutcome = document.querySelector('#cometOutcome');
+var totalResetButton = document.querySelector('#fullReset');
 
 classicGameOption.addEventListener('click', selectClassic);
 complexGameOption.addEventListener('click', selectComplex);
@@ -28,6 +28,7 @@ for(var i = 0; i < gamePlay.length; i++) {
     gamePlay[i].addEventListener('click', function() {setTimeout(prepNextRound, 1500)});
 }
 resetButton.addEventListener('click', showOptions)
+totalResetButton.addEventListener('click', resetFullGame)
 
 function hide(element) {
     element.classList.add('hidden');
@@ -82,18 +83,30 @@ function addTokens(results) {
 function showWinToken() {
     var humanFig = document.querySelector('#humanFig');
     var compFig = document.querySelector('#compFig');
-    if(currentGame.currentWin === 'Person' && cometPosition < 240 && cometPosition > -240) {
+    if(currentGame.currentWin === 'Person')
+    //  && cometPosition < 240 && cometPosition > -240) 
+     {
         cometPosition += 80
-        sozinComet.style['object-position'] = `${cometPosition}px`
-        console.log(cometPosition)
+        // sozinComet.style['object-position'] = `${cometPosition}px`
+        positionComet();
+        console.log(cometPosition);
         show(humanFig);
         showWinCount();
-    } else if(currentGame.currentWin === 'Computer' && cometPosition < 240 && cometPosition > -240) {
+    } else if(currentGame.currentWin === 'Computer')
+    //  && cometPosition < 240 && cometPosition > -240) 
+    {
         cometPosition -= 80;
-        sozinComet.style['object-position'] = `${cometPosition}px`
+        // sozinComet.style['object-position'] = `${cometPosition}px`
+        positionComet()
         console.log(cometPosition)
         show(compFig);
         showWinCount();
+    }
+}
+
+function positionComet() {
+    if(cometPosition <= 240 && cometPosition >= -240) {
+        sozinComet.style['object-position'] = `${cometPosition}px`
     }
 }
 
@@ -130,11 +143,16 @@ function displayNationsFate() {
     hide(imagesClassic);
     hide(imagesComplex);
     hide(resetButton);
+    show(totalResetButton);
     if(cometPosition === 240) {
         gameHeader.innerText = 'You saved the Nations!!';
     } else if(cometPosition === -240) {
         gameHeader.innerText = 'You failed the Nations...';
     }
+}
+
+function resetFullGame() {
+    window.location.reload()
 }
 
 function showClassicGame() {
@@ -148,6 +166,7 @@ function showClassicGame() {
     show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
+    hide(totalResetButton);
 }
 
 function showComplexGame() {
@@ -161,6 +180,7 @@ function showComplexGame() {
     show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
+    hide(totalResetButton);
 }
 
 function showOptions() {
@@ -170,4 +190,5 @@ function showOptions() {
     hide(imagesClassic);
     hide(imagesComplex);
     hide(resetButton);
+    hide(totalResetButton);
 }

@@ -192,7 +192,7 @@ figcaption {
     color: #964637;
 }
 
-.reset-button {
+.reset-button, .full-reset {
     font-family: 'Herculanum LT Pro', sans-serif;
     font-size: 15pt;
     background-color:#fbd0a2;
