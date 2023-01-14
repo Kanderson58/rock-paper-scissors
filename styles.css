@@ -21,7 +21,7 @@ main {
 }
 
 h1 {
-    font-size: 50pt;
+    font-size: 40pt;
     margin: 0;
 }
 
@@ -65,7 +65,7 @@ img {
     color: black;
 }
 
-.fighter:hover {
+.fighter:hover, .sozin-comet:hover {
     cursor: pointer;
     animation-duration: 1s;
     animation-name: zoom;
@@ -81,7 +81,7 @@ p {
     font-size: 15pt;
 }
 
-section, .computer-header, .person-header, .main-header {
+section, header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,6 +89,10 @@ section, .computer-header, .person-header, .main-header {
 
 .computer-header, .person-header {
     margin-top: 30%;
+}
+
+.main-header {
+    margin-top: 5%;
 }
 
 div, .reset-button {
@@ -155,19 +159,46 @@ figcaption {
     padding: 1%;
 }
 
-.extra-styling {
-    margin-top: 20%;
-}
-
-.reset-complex, .reset-classic {
+.sozin-comet-section {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
     border: none;
 }
 
-.reset-button {
+.sozin-comet {
+    width: 800px;
+    height: 75px;
+    padding-left: 10%;
+}
+
+.comet-path {
+    width: 800px;
+    height: 75px;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("./assets/comet-path.png");
+}
+
+.sozin-figcap {
+    font-size: 18px;
+    color: #964637;
+}
+
+.reset-button, .full-reset {
     font-family: 'Herculanum LT Pro', sans-serif;
-    font-size: 20pt;
+    font-size: 15pt;
+    background-color:#fbd0a2;
     width: 400px;
-    padding: 3%;
+    padding: 2%;
+    margin: 2%;
 }
 
 .hidden {

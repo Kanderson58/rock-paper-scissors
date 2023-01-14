@@ -1,19 +1,25 @@
 // STOP!  Is what I'm doing data related or DOM related?  Is the data changing in this file?  Are you using methods - i.e. splice, push?  If YES, go to your classes!
 
-var currentGame = new Game;
+// change query selects to get element by ID
 
-var gameHeader = document.querySelector('#gameHeader');
-var classicGameOption = document.querySelector('#classic');
-var complexGameOption = document.querySelector('#complex');
-var fighters = document.querySelectorAll('.fighter');
+var currentGame = new Game;
+var cometPosition = 0;
+
+var gameHeader = document.getElementById('gameHeader');
+var classicGameOption = document.getElementById('classic');
+var complexGameOption = document.getElementById('complex');
 var imagesComplex = document.querySelector('.images-complex');
 var imagesClassic = document.querySelector('.images-classic')
-var classicResults = document.querySelector('#classicPlay');
-var complexResults = document.querySelector('#complexPlay');
-var compWins = document.querySelector('#compWins');
-var humanWins = document.querySelector('#humanWins');
+var classicResults = document.getElementById('classicPlay');
+var complexResults = document.getElementById('complexPlay');
+var compWins = document.getElementById('compWins');
+var humanWins = document.getElementById('humanWins');
 var gamePlay = document.querySelectorAll('#imageBlock');
-var resetButton = document.querySelector('#resetBtn');
+var resetButton = document.getElementById('resetBtn');
+var sozinComet = document.getElementById('sozinComet');
+var sozinCaption = document.getElementById('sozinCaption');
+var cometOutcome = document.getElementById('cometOutcome');
+var totalResetButton = document.getElementById('fullReset');
 
 classicGameOption.addEventListener('click', selectClassic);
 complexGameOption.addEventListener('click', selectComplex);
@@ -22,6 +28,7 @@ for(var i = 0; i < gamePlay.length; i++) {
     gamePlay[i].addEventListener('click', function() {setTimeout(prepNextRound, 1500)});
 }
 resetButton.addEventListener('click', showOptions)
+totalResetButton.addEventListener('click', resetFullGame)
 
 function hide(element) {
     element.classList.add('hidden');
@@ -74,14 +81,28 @@ function addTokens(results) {
 }
 
 function showWinToken() {
-    var humanFig = document.querySelector('#humanFig');
-    var compFig = document.querySelector('#compFig');
-    if(currentGame.currentWin === 'Person') {
+    var humanFig = document.getElementById('humanFig');
+    var compFig = document.getElementById('compFig');
+    if(currentGame.currentWin === 'Person')
+     {
+        cometPosition += 80
+        positionComet();
+        console.log(cometPosition);
         show(humanFig);
         showWinCount();
-    } else if(currentGame.currentWin === 'Computer') {
+    } else if(currentGame.currentWin === 'Computer')
+    {
+        cometPosition -= 80;
+        positionComet()
+        console.log(cometPosition)
         show(compFig);
         showWinCount();
+    }
+}
+
+function positionComet() {
+    if(cometPosition <= 240 && cometPosition >= -240) {
+        sozinComet.style['object-position'] = `${cometPosition}px`
     }
 }
 
@@ -100,6 +121,10 @@ function showWinCount() {
 }
 
 function prepNextRound() {
+    if(cometPosition === 240 || cometPosition === -240) {
+        displayNationsFate();
+        return
+    }
     show(resetButton)
     if(currentGame.selectedGame === 'classic') {
         showClassicGame();
@@ -108,7 +133,26 @@ function prepNextRound() {
     }
 }
 
+function displayNationsFate() {
+    hide(classicResults);
+    hide(complexResults);
+    hide(imagesClassic);
+    hide(imagesComplex);
+    hide(resetButton);
+    show(totalResetButton);
+    if(cometPosition === 240) {
+        gameHeader.innerText = 'You saved the Nations!!';
+    } else if(cometPosition === -240) {
+        gameHeader.innerText = 'You failed the Nations...';
+    }
+}
+
+function resetFullGame() {
+    window.location.reload()
+}
+
 function showClassicGame() {
+    sozinCaption.innerText = ''
     gameHeader.innerText = 'Choose Your Fighter!';
     classicResults.innerHTML = '';
     imagesClassic.innerHTML = '';
@@ -118,9 +162,11 @@ function showClassicGame() {
     show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
+    hide(totalResetButton);
 }
 
 function showComplexGame() {
+    sozinCaption.innerText = ''
     gameHeader.innerText = 'Choose Your Fighter!';
     complexResults.innerHTML = '';
     imagesComplex.innerHTML = '';
@@ -130,14 +176,15 @@ function showComplexGame() {
     show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
+    hide(totalResetButton);
 }
 
 function showOptions() {
     gameHeader.innerText = 'Choose Your Game!';
-    gameHeader.id = 'game-choice';
     show(classicGameOption);
     show(complexGameOption);
     hide(imagesClassic);
     hide(imagesComplex);
     hide(resetButton);
+    hide(totalResetButton);
 }
