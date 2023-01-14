@@ -5,21 +5,21 @@
 var currentGame = new Game;
 var cometPosition = 0;
 
-var gameHeader = document.querySelector('#gameHeader');
-var classicGameOption = document.querySelector('#classic');
-var complexGameOption = document.querySelector('#complex');
+var gameHeader = document.getElementById('gameHeader');
+var classicGameOption = document.getElementById('classic');
+var complexGameOption = document.getElementById('complex');
 var imagesComplex = document.querySelector('.images-complex');
 var imagesClassic = document.querySelector('.images-classic')
-var classicResults = document.querySelector('#classicPlay');
-var complexResults = document.querySelector('#complexPlay');
-var compWins = document.querySelector('#compWins');
-var humanWins = document.querySelector('#humanWins');
+var classicResults = document.getElementById('classicPlay');
+var complexResults = document.getElementById('complexPlay');
+var compWins = document.getElementById('compWins');
+var humanWins = document.getElementById('humanWins');
 var gamePlay = document.querySelectorAll('#imageBlock');
-var resetButton = document.querySelector('#resetBtn');
-var sozinComet = document.querySelector('#sozinComet');
-var sozinCaption = document.querySelector('#sozinCaption');
-var cometOutcome = document.querySelector('#cometOutcome');
-var totalResetButton = document.querySelector('#fullReset');
+var resetButton = document.getElementById('resetBtn');
+var sozinComet = document.getElementById('sozinComet');
+var sozinCaption = document.getElementById('sozinCaption');
+var cometOutcome = document.getElementById('cometOutcome');
+var totalResetButton = document.getElementById('fullReset');
 
 classicGameOption.addEventListener('click', selectClassic);
 complexGameOption.addEventListener('click', selectComplex);
@@ -81,22 +81,18 @@ function addTokens(results) {
 }
 
 function showWinToken() {
-    var humanFig = document.querySelector('#humanFig');
-    var compFig = document.querySelector('#compFig');
+    var humanFig = document.getElementById('humanFig');
+    var compFig = document.getElementById('compFig');
     if(currentGame.currentWin === 'Person')
-    //  && cometPosition < 240 && cometPosition > -240) 
      {
         cometPosition += 80
-        // sozinComet.style['object-position'] = `${cometPosition}px`
         positionComet();
         console.log(cometPosition);
         show(humanFig);
         showWinCount();
     } else if(currentGame.currentWin === 'Computer')
-    //  && cometPosition < 240 && cometPosition > -240) 
     {
         cometPosition -= 80;
-        // sozinComet.style['object-position'] = `${cometPosition}px`
         positionComet()
         console.log(cometPosition)
         show(compFig);

@@ -52,9 +52,6 @@ class Game {
         if(human === comp) {
             this.declareDraw();
         }
-        // console.log('human', this.human.chosenFighter)
-        // console.log('comp', this.computer.chosenFighter)
-        // console.log(this.currentWin)
     }
     compareFightersComplex() {
         var human = this.human.chosenFighter;
@@ -98,9 +95,6 @@ class Game {
         if(human === comp) {
             this.declareDraw();
         }
-        // console.log('human', this.human.chosenFighter)
-        // console.log('comp', this.computer.chosenFighter)
-        // console.log(this.currentWin)
     }
     declareDraw() {
         this.currentWin = 'Draw';
