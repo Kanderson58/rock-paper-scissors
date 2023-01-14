@@ -4,6 +4,7 @@
 // Sozin's comet: each time the comp wins, it gets closer, and each time it loses, it gets further away
 
 var currentGame = new Game;
+var cometPosition = 0;
 
 var gameHeader = document.querySelector('#gameHeader');
 var classicGameOption = document.querySelector('#classic');
@@ -18,6 +19,7 @@ var gamePlay = document.querySelectorAll('#imageBlock');
 var resetButton = document.querySelector('#resetBtn');
 var sozinComet = document.querySelector('#sozinComet');
 var sozinCaption = document.querySelector('#sozinCaption');
+var cometOutcome = document.querySelector('#cometOutcome');
 
 classicGameOption.addEventListener('click', selectClassic);
 complexGameOption.addEventListener('click', selectComplex);
@@ -77,18 +79,19 @@ function addTokens(results) {
     showWinToken();
 }
 
-var cometPosition = 0;
 function showWinToken() {
     var humanFig = document.querySelector('#humanFig');
     var compFig = document.querySelector('#compFig');
-    if(currentGame.currentWin === 'Person') {
-        cometPosition += 50
+    if(currentGame.currentWin === 'Person' && cometPosition < 240 && cometPosition > -240) {
+        cometPosition += 80
         sozinComet.style['object-position'] = `${cometPosition}px`
+        console.log(cometPosition)
         show(humanFig);
         showWinCount();
-    } else if(currentGame.currentWin === 'Computer') {
-        cometPosition = cometPosition - 50
+    } else if(currentGame.currentWin === 'Computer' && cometPosition < 240 && cometPosition > -240) {
+        cometPosition -= 80;
         sozinComet.style['object-position'] = `${cometPosition}px`
+        console.log(cometPosition)
         show(compFig);
         showWinCount();
     }
@@ -109,6 +112,10 @@ function showWinCount() {
 }
 
 function prepNextRound() {
+    if(cometPosition === 240 || cometPosition === -240) {
+        displayNationsFate();
+        return
+    }
     show(resetButton)
     if(currentGame.selectedGame === 'classic') {
         showClassicGame();
@@ -117,31 +124,47 @@ function prepNextRound() {
     }
 }
 
+function displayNationsFate() {
+    hide(classicResults);
+    hide(complexResults);
+    hide(imagesClassic);
+    hide(imagesComplex);
+    hide(resetButton);
+    if(cometPosition === 240) {
+        gameHeader.innerText = 'You saved the Nations!!';
+    } else if(cometPosition === -240) {
+        gameHeader.innerText = 'You failed the Nations...';
+    }
+}
+
 function showClassicGame() {
+    sozinCaption.innerText = ''
     gameHeader.innerText = 'Choose Your Fighter!';
     classicResults.innerHTML = '';
     imagesClassic.innerHTML = '';
     imagesClassic.innerHTML += `${imageCodes[0]}${imageCodes[1]}${imageCodes[2]}`;
     hide(classicResults);
     show(imagesClassic);
+    show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
 }
 
 function showComplexGame() {
+    sozinCaption.innerText = ''
     gameHeader.innerText = 'Choose Your Fighter!';
     complexResults.innerHTML = '';
     imagesComplex.innerHTML = '';
     imagesComplex.innerHTML += `${imageCodes[3]}${imageCodes[4]}${imageCodes[5]}${imageCodes[6]}${imageCodes[7]}`;
     hide(complexResults);
     show(imagesComplex);
+    show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
 }
 
 function showOptions() {
     gameHeader.innerText = 'Choose Your Game!';
-    gameHeader.id = 'game-choice';
     show(classicGameOption);
     show(complexGameOption);
     hide(imagesClassic);
