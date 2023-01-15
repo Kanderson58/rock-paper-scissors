@@ -99,4 +99,9 @@ class Game {
     declareDraw() {
         this.currentWin = 'Draw';
     }
+    positionComet() {
+        if(cometPosition <= 240 && cometPosition >= -240) {
+            sozinComet.style['object-position'] = `${cometPosition}px`
+        }
+    }
 }

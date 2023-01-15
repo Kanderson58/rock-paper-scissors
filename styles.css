@@ -95,7 +95,7 @@ section, header {
     margin-top: 5%;
 }
 
-div, .reset-button {
+div, .reset-button, .full-reset {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -129,7 +129,7 @@ ul {
     padding-bottom: 7%;
 }
 
-.classic-game:hover, .complex-game:hover, .reset-button:hover {
+.classic-game:hover, .complex-game:hover, .reset-button:hover, .full-reset:hover {
     background-color: #e37120;
     transition: 1.5s;
     cursor: pointer;

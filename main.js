@@ -1,7 +1,5 @@
 // STOP!  Is what I'm doing data related or DOM related?  Is the data changing in this file?  Are you using methods - i.e. splice, push?  If YES, go to your classes!
 
-// change query selects to get element by ID
-
 var currentGame = new Game;
 var cometPosition = 0;
 
@@ -86,25 +84,23 @@ function showWinToken() {
     if(currentGame.currentWin === 'Person')
      {
         cometPosition += 80
-        positionComet();
-        console.log(cometPosition);
+        currentGame.positionComet();
         show(humanFig);
         showWinCount();
     } else if(currentGame.currentWin === 'Computer')
     {
         cometPosition -= 80;
-        positionComet()
-        console.log(cometPosition)
+        currentGame.positionComet()
         show(compFig);
         showWinCount();
     }
 }
 
-function positionComet() {
-    if(cometPosition <= 240 && cometPosition >= -240) {
-        sozinComet.style['object-position'] = `${cometPosition}px`
-    }
-}
+// function positionComet() {
+//     if(cometPosition <= 240 && cometPosition >= -240) {
+//         sozinComet.style['object-position'] = `${cometPosition}px`
+//     }
+// }
 
 function showWinCount() {
     if(currentGame.currentWin === 'Computer') {
