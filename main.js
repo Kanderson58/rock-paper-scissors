@@ -168,6 +168,10 @@ function resetFullGame() {
     hide(imagesComplex);
     hide(resetButton);
     hide(totalResetButton);
+    classicResults.innerHTML = '';
+    imagesClassic.innerHTML = '';
+    complexResults.innerHTML = '';
+    imagesComplex.innerHTML = '';
 }
 
 function showClassicGame() {
