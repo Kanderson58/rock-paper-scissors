@@ -1,7 +1,6 @@
 // STOP!  Is what I'm doing data related or DOM related?  Is the data changing in this file?  Are you using methods - i.e. splice, push?  If YES, go to your classes!
 
 var currentGame = new Game;
-var cometPosition = 0;
 
 var gameHeader = document.getElementById('gameHeader');
 var classicGameOption = document.getElementById('classic');
@@ -83,24 +82,24 @@ function showWinToken() {
     var compFig = document.getElementById('compFig');
     if(currentGame.currentWin === 'Person')
      {
-        cometPosition += 80
-        currentGame.positionComet();
+        currentGame.moveComet();
+        positionComet();
         show(humanFig);
         showWinCount();
     } else if(currentGame.currentWin === 'Computer')
     {
-        cometPosition -= 80;
-        currentGame.positionComet()
+        currentGame.moveComet();
+        positionComet()
         show(compFig);
         showWinCount();
     }
 }
 
-// function positionComet() {
-//     if(cometPosition <= 240 && cometPosition >= -240) {
-//         sozinComet.style['object-position'] = `${cometPosition}px`
-//     }
-// }
+function positionComet() {
+    if(currentGame.cometPosition <= 240 && currentGame.cometPosition >= -240) {
+        sozinComet.style['object-position'] = `${currentGame.cometPosition}px`
+    }
+}
 
 function showWinCount() {
     if(currentGame.currentWin === 'Computer') {
@@ -117,7 +116,7 @@ function showWinCount() {
 }
 
 function prepNextRound() {
-    if(cometPosition === 240 || cometPosition === -240) {
+    if(currentGame.cometPosition === 240 || currentGame.cometPosition === -240) {
         displayNationsFate();
         return
     }
@@ -136,9 +135,9 @@ function displayNationsFate() {
     hide(imagesComplex);
     hide(resetButton);
     show(totalResetButton);
-    if(cometPosition === 240) {
+    if(currentGame.cometPosition === 240) {
         gameHeader.innerText = 'You saved the Nations!!';
-    } else if(cometPosition === -240) {
+    } else if(currentGame.cometPosition === -240) {
         gameHeader.innerText = 'You failed the Nations...';
     }
 }

@@ -8,6 +8,7 @@ class Game {
         this.selectedGame;
         this.draw = true;
         this.currentWin = '';
+        this.cometPosition = 0;
     }
     selectGameSetup(type){
         this.selectedGame = type;
@@ -99,9 +100,11 @@ class Game {
     declareDraw() {
         this.currentWin = 'Draw';
     }
-    positionComet() {
-        if(cometPosition <= 240 && cometPosition >= -240) {
-            sozinComet.style['object-position'] = `${cometPosition}px`
+    moveComet() {
+        if(currentGame.currentWin === 'Person') {
+            this.cometPosition += 80
+        } else if(currentGame.currentWin === 'Computer'){
+            this.cometPosition -= 80;
         }
     }
 }
