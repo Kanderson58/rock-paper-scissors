@@ -22,7 +22,7 @@ classicGameOption.addEventListener('click', selectClassic);
 complexGameOption.addEventListener('click', selectComplex);
 for(var i = 0; i < gamePlay.length; i++) {
     gamePlay[i].addEventListener('click', selectFighter);
-    gamePlay[i].addEventListener('click', function() {setTimeout(prepNextRound, 1500)});
+    gamePlay[i].addEventListener('click', function() {setTimeout(prepNextRound, 2000)});
 }
 resetButton.addEventListener('click', showOptions)
 totalResetButton.addEventListener('click', resetFullGame)
@@ -99,6 +99,20 @@ function positionComet() {
     if(currentGame.cometPosition <= 240 && currentGame.cometPosition >= -240) {
         sozinComet.style['object-position'] = `${currentGame.cometPosition}px`
     }
+    encouragePlayer()
+}
+
+function encouragePlayer() {
+    var gamesLeft = 3 - (currentGame.human.wins - currentGame.computer.wins)
+    if(gamesLeft > 0 && gamesLeft < 6 && currentGame.currentWin) {
+        sozinCaption.innerText = `You can do it! ${gamesLeft} more to go!`
+    } else if(gamesLeft > 0 && gamesLeft < 6 && !currentGame.currentWin) {
+        sozinCaption.innerText = 'Win 3 games to save the nations!'
+    } else if(gamesLeft === 6) {
+        sozinCaption.innerText = 'Oh no...'
+    } else if(gamesLeft === 0) {
+        sozinCaption.innerText = 'Hooray!'
+    }
 }
 
 function showWinCount() {
@@ -135,6 +149,7 @@ function displayNationsFate() {
     hide(imagesComplex);
     hide(resetButton);
     show(totalResetButton);
+    sozinCaption.innerText = ''
     if(currentGame.cometPosition === 240) {
         gameHeader.innerText = 'You saved the Nations!!';
     } else if(currentGame.cometPosition === -240) {
@@ -147,7 +162,7 @@ function resetFullGame() {
 }
 
 function showClassicGame() {
-    sozinCaption.innerText = ''
+    encouragePlayer();
     gameHeader.innerText = 'Choose Your Fighter!';
     classicResults.innerHTML = '';
     imagesClassic.innerHTML = '';
@@ -161,7 +176,7 @@ function showClassicGame() {
 }
 
 function showComplexGame() {
-    sozinCaption.innerText = ''
+    encouragePlayer();
     gameHeader.innerText = 'Choose Your Fighter!';
     complexResults.innerHTML = '';
     imagesComplex.innerHTML = '';

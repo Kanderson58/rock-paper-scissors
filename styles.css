@@ -190,6 +190,7 @@ figcaption {
 .sozin-figcap {
     font-size: 18px;
     color: #964637;
+    width: 360px;
 }
 
 .reset-button, .full-reset {
