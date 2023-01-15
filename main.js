@@ -1,5 +1,3 @@
-// STOP!  Is what I'm doing data related or DOM related?  Is the data changing in this file?  Are you using methods - i.e. splice, push?  If YES, go to your classes!
-
 var currentGame = new Game;
 
 var gameHeader = document.getElementById('gameHeader');
@@ -24,8 +22,8 @@ for(var i = 0; i < gamePlay.length; i++) {
     gamePlay[i].addEventListener('click', selectFighter);
     gamePlay[i].addEventListener('click', function() {setTimeout(prepNextRound, 2000)});
 }
-resetButton.addEventListener('click', showOptions)
-totalResetButton.addEventListener('click', resetFullGame)
+resetButton.addEventListener('click', showOptions);
+totalResetButton.addEventListener('click', resetFullGame);
 
 function hide(element) {
     element.classList.add('hidden');
@@ -53,7 +51,7 @@ function selectFighter(event) {
 }
 
 function showBattleMode() {
-    hide(resetButton)
+    hide(resetButton);
     if(currentGame.currentWin === 'Person' || currentGame.currentWin === 'Computer') {
         gameHeader.innerText = `${currentGame.currentWin} has won!`;
     } else {
@@ -89,7 +87,7 @@ function showWinToken() {
     } else if(currentGame.currentWin === 'Computer')
     {
         currentGame.moveComet();
-        positionComet()
+        positionComet();
         show(compFig);
         showWinCount();
     }
@@ -97,21 +95,21 @@ function showWinToken() {
 
 function positionComet() {
     if(currentGame.cometPosition <= 240 && currentGame.cometPosition >= -240) {
-        sozinComet.style['object-position'] = `${currentGame.cometPosition}px`
+        sozinComet.style['object-position'] = `${currentGame.cometPosition}px`;
     }
-    encouragePlayer()
+    encouragePlayer();
 }
 
 function encouragePlayer() {
-    var gamesLeft = 3 - (currentGame.human.wins - currentGame.computer.wins)
+    var gamesLeft = 3 - (currentGame.human.wins - currentGame.computer.wins);
     if(gamesLeft > 0 && gamesLeft < 6 && currentGame.currentWin) {
-        sozinCaption.innerText = `You can do it! ${gamesLeft} more to go!`
+        sozinCaption.innerText = `You can do it! ${gamesLeft} more to go!`;
     } else if(gamesLeft > 0 && gamesLeft < 6 && !currentGame.currentWin) {
-        sozinCaption.innerText = 'Win 3 games to save the nations!'
+        sozinCaption.innerText = 'Win 3 games to save the nations!';
     } else if(gamesLeft === 6) {
-        sozinCaption.innerText = 'Oh no...'
+        sozinCaption.innerText = 'Oh no...';
     } else if(gamesLeft === 0) {
-        sozinCaption.innerText = 'Hooray!'
+        sozinCaption.innerText = 'Hooray!';
     }
 }
 
@@ -132,7 +130,7 @@ function showWinCount() {
 function prepNextRound() {
     if(currentGame.cometPosition === 240 || currentGame.cometPosition === -240) {
         displayNationsFate();
-        return
+        return;
     }
     show(resetButton)
     if(currentGame.selectedGame === 'classic') {
@@ -149,7 +147,7 @@ function displayNationsFate() {
     hide(imagesComplex);
     hide(resetButton);
     show(totalResetButton);
-    sozinCaption.innerText = ''
+    sozinCaption.innerText = '';
     if(currentGame.cometPosition === 240) {
         gameHeader.innerText = 'You saved the Nations!!';
     } else if(currentGame.cometPosition === -240) {
@@ -158,7 +156,18 @@ function displayNationsFate() {
 }
 
 function resetFullGame() {
-    window.location.reload()
+    currentGame = new Game;
+    gameHeader.innerText = 'Choose Your Game!';
+    sozinComet.style['object-position'] = '0px';
+    sozinCaption.innerText = 'Uh oh! Sozin\'s comet is on the way!  Win games to save the nations!';
+    humanWins.innerText = 'Wins: 0';
+    compWins.innerText = 'Wins: 0';
+    show(classicGameOption);
+    show(complexGameOption);
+    hide(imagesClassic);
+    hide(imagesComplex);
+    hide(resetButton);
+    hide(totalResetButton);
 }
 
 function showClassicGame() {

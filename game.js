@@ -1,12 +1,9 @@
-// STOP!  Is what I'm doing data related or DOM related?  Is the page changing in this file?  Are you using innerHTML, innerText, or display hidden?  If YES, go to main!
-
 class Game {
     constructor() {
         this.human = new Player('cabbage merchant', '🥬');
         this.computer = new Player('avatar state', '☯️');
         this.fighters = [];
         this.selectedGame;
-        this.draw = true;
         this.currentWin = '';
         this.cometPosition = 0;
     }
@@ -28,7 +25,6 @@ class Game {
     compareFightersClassic() {
         var human = this.human.chosenFighter;
         var comp = this.computer.chosenFighter;
-        this.draw = false;
         if(human === 0 && comp === 1) {
             this.computer.wins++;
             this.currentWin = 'Computer';
@@ -57,7 +53,6 @@ class Game {
     compareFightersComplex() {
         var human = this.human.chosenFighter;
         var comp = this.computer.chosenFighter;
-        this.draw = false;
         if(human === 3 && (comp === 4 || comp === 7)) {
             this.computer.wins++;
             this.currentWin = 'Computer';
@@ -102,7 +97,7 @@ class Game {
     }
     moveComet() {
         if(currentGame.currentWin === 'Person') {
-            this.cometPosition += 80
+            this.cometPosition += 80;
         } else if(currentGame.currentWin === 'Computer'){
             this.cometPosition -= 80;
         }
