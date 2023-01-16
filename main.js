@@ -37,10 +37,10 @@ function selectClassic() {
     currentGame.selectGameSetup('classic');
     showClassicGame();
 }
-
+// these become irrelevant - showGame can send id input to selectGameSetup
 function selectComplex() {
     currentGame.selectGameSetup('complex');
-    showComplexGame();
+    showClassicGame();
 }
 
 function selectFighter(event) {
@@ -62,7 +62,7 @@ function showBattleMode() {
         show(classicResults);
         addTokens(classicResults);
     } else {
-        hide(imagesComplex);
+        hide(imagesClassic);
         show(complexResults);
         addTokens(complexResults);
     }
@@ -132,18 +132,14 @@ function prepNextRound() {
         return;
     }
     show(resetButton)
-    if(currentGame.selectedGame === 'classic') {
-        showClassicGame();
-    } else {
-        showComplexGame();
-    }
+    showClassicGame()
 }
 
 function displayNationsFate() {
     hide(classicResults);
     hide(complexResults);
     hide(imagesClassic);
-    hide(imagesComplex);
+    // hide(imagesComplex);
     hide(resetButton);
     show(totalResetButton);
     sozinCaption.innerText = '';
@@ -153,29 +149,23 @@ function displayNationsFate() {
         gameHeader.innerText = 'You failed the Nations...';
     }
 }
-
+// showclassic and showcomplex are now the same
+// event listener on a section that is put around them
+// rename classes and IDs accordingly
+// pass in event target and check its ID to determine if it's classic or complex
+// 
 function showClassicGame() {
     encouragePlayer();
     gameHeader.innerText = 'Choose Your Fighter!';
     classicResults.innerHTML = '';
     imagesClassic.innerHTML = '';
-    imagesClassic.innerHTML += `${imageCodes[0]}${imageCodes[1]}${imageCodes[2]}`;
+    for(var i = 0; i < currentGame.fighters.length; i++) {
+        imagesClassic.innerHTML += `${imageCodes[currentGame.fighters[i]]}`;
+    }
+    // imagesClassic.innerHTML += `${imageCodes[0]}${imageCodes[1]}${imageCodes[2]}`;
     hide(classicResults);
-    show(imagesClassic);
-    show(resetButton);
-    hide(classicGameOption);
-    hide(complexGameOption);
-    hide(totalResetButton);
-}
-
-function showComplexGame() {
-    encouragePlayer();
-    gameHeader.innerText = 'Choose Your Fighter!';
-    complexResults.innerHTML = '';
-    imagesComplex.innerHTML = '';
-    imagesComplex.innerHTML += `${imageCodes[3]}${imageCodes[4]}${imageCodes[5]}${imageCodes[6]}${imageCodes[7]}`;
     hide(complexResults);
-    show(imagesComplex);
+    show(imagesClassic);
     show(resetButton);
     hide(classicGameOption);
     hide(complexGameOption);
@@ -187,7 +177,7 @@ function showOptions() {
     show(classicGameOption);
     show(complexGameOption);
     hide(imagesClassic);
-    hide(imagesComplex);
+    // hide(imagesComplex);
     hide(resetButton);
     hide(totalResetButton);
 }
@@ -202,11 +192,11 @@ function resetFullGame() {
     show(classicGameOption);
     show(complexGameOption);
     hide(imagesClassic);
-    hide(imagesComplex);
+    // hide(imagesComplex);
     hide(resetButton);
     hide(totalResetButton);
     classicResults.innerHTML = '';
     imagesClassic.innerHTML = '';
     complexResults.innerHTML = '';
-    imagesComplex.innerHTML = '';
+    // imagesComplex.innerHTML = '';
 }
