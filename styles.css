@@ -91,10 +91,6 @@ section, header {
     margin-top: 30%;
 }
 
-.main-header {
-    /* margin-top: 5%; */
-}
-
 div, .reset-button, .full-reset {
     display: flex;
     flex-direction: column;
@@ -106,20 +102,11 @@ div, .reset-button, .full-reset {
 
 .classic-game, .complex-game {
     padding: 0% 3% 0% 3%;
-    /* padding-left: 3%; */
 }
 
 .complex-game {
     margin-bottom: 10%;
 }
-
-/* .game-options {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 10%;
-    width: 40%;
-    background: none;
-} */
 
 strong {
     font-size: larger;
@@ -143,13 +130,12 @@ ul {
     cursor: pointer;
 }
 
-.images-complex, .images-classic, .play-screen {
+.fighter-images, .play-screen {
     display: flex;
     flex-direction: row;
     border: none;
     background: none;
     padding-bottom: 10%;
-    /* margin-bottom: 25%; */
 }
 
 .play-screen {
