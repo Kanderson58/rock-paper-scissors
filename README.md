@@ -14,7 +14,7 @@ Step 4: Open index.html file in browser
 Step 5: Chose the game you prefer and start playing!
 
 ### Preview of App:
-https://user-images.githubusercontent.com/114871395/212723147-b93e8cc9-fa84-4ba6-94a3-8b4a5597179f.png
+<img width="1439" alt="Screenshot 2023-01-16 at 9 13 40 AM" src="https://user-images.githubusercontent.com/114871395/212723147-b93e8cc9-fa84-4ba6-94a3-8b4a5597179f.png">
 
 ### Contributors
 Kara Anderson
