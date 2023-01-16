@@ -35,12 +35,29 @@ function show(element) {
 
 function selectClassic() {
     currentGame.selectGameSetup('classic');
-    showClassicGame();
+    selectGame();
 }
-// these become irrelevant - showGame can send id input to selectGameSetup
+
 function selectComplex() {
     currentGame.selectGameSetup('complex');
-    showClassicGame();
+    selectGame();
+}
+
+function selectGame() {
+    encouragePlayer();
+    gameHeader.innerText = 'Choose Your Fighter!';
+    classicResults.innerHTML = '';
+    imagesClassic.innerHTML = '';
+    for(var i = 0; i < currentGame.fighters.length; i++) {
+        imagesClassic.innerHTML += `${imageCodes[currentGame.fighters[i]]}`;
+    }
+    hide(classicResults);
+    hide(complexResults);
+    show(imagesClassic);
+    show(resetButton);
+    hide(classicGameOption);
+    hide(complexGameOption);
+    hide(totalResetButton);
 }
 
 function selectFighter(event) {
@@ -132,7 +149,7 @@ function prepNextRound() {
         return;
     }
     show(resetButton)
-    showClassicGame()
+    selectGame()
 }
 
 function displayNationsFate() {
@@ -148,28 +165,6 @@ function displayNationsFate() {
     } else if(currentGame.cometPosition === -240) {
         gameHeader.innerText = 'You failed the Nations...';
     }
-}
-// showclassic and showcomplex are now the same
-// event listener on a section that is put around them
-// rename classes and IDs accordingly
-// pass in event target and check its ID to determine if it's classic or complex
-// 
-function showClassicGame() {
-    encouragePlayer();
-    gameHeader.innerText = 'Choose Your Fighter!';
-    classicResults.innerHTML = '';
-    imagesClassic.innerHTML = '';
-    for(var i = 0; i < currentGame.fighters.length; i++) {
-        imagesClassic.innerHTML += `${imageCodes[currentGame.fighters[i]]}`;
-    }
-    // imagesClassic.innerHTML += `${imageCodes[0]}${imageCodes[1]}${imageCodes[2]}`;
-    hide(classicResults);
-    hide(complexResults);
-    show(imagesClassic);
-    show(resetButton);
-    hide(classicGameOption);
-    hide(complexGameOption);
-    hide(totalResetButton);
 }
 
 function showOptions() {
