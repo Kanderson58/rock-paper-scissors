@@ -1,66 +1,28 @@
 ### Rock Paper Scissors
+This project is a rock, paper, scissors game that I built using my Javascript, CSS, and HTML learning.  It makes use of class to class interaction to allow the user to play two versions of the game of rock, paper, scissors against the computer.
 
-# Required features:
+### Abstract
+I created an Avatar: the Last Airbender themed rock, paper, scissors game.  You can take on the role of the heoric cabbage man and play against the computer in a race against time to save the nations from the incoming Sozin's Comet.  Win three more games than the computer and stop the comet!  You have the option to play classic rock, paper, scissors, or a more complex version.  The complex version fully immerses you in the Avatar world by allowing you to chose if you are an waterbender, earthbender, firebender, airbender, or all of the above - the Avatar himself.
 
-1. Both players’ wins should be displayed.
-2. Both players’ selected fighter icon should be displayed each round.
-3. Winner (or Draw) should be announced each round.
-4. A timeout is used after a completed round to reset the board.
-5. The overall layout should be the same but you can choose different colors and icons if you want to get creative with your with your Rock Paper Scissors design!
-6. This game is played by one user against a computer. The computer player should be an instantiation of Player and have the ability to make a random choice.
-7. You’ll need to make two versions of Rock, Paper, Scissors - “classic” and some variation. The variation should include more than 3 options (the one in the video has 5). You can invent your own variation, or do some research on variations here. Make sure you communicate the rules to your user!
+### Installation Instructions
+Repository Available Here: https://github.com/Kanderson58/rock-paper-scissors
 
-# Suggested Iterations
+Step 1: Fork repository
+Step 2: Clone repository onto local machine
+Step 3: In terminal - change directory(cd) into newly cloned directory, can also use Finder to search for index.html
+Step 4: Open index.html file in browser
+Step 5: Chose the game you prefer and start playing!
 
-1. Plan out the HTML layout (colors and icons do not need to match, but overall layout should closely match the demo video)
-2. Create the Player class
-3. Create the Game class
-4. Make game fully playable without the DOM (manually updating the Game data, etc, from your console) to force yourself to think data-model-first
-5. Create central game board on the DOM
-6. Connect Game data model to the DOM
-7. Display the Player data in the sidebars
-8. Automatically reset the game board to allow for a new game to be played after the previous game is won
-9. Extension - Persist Player data using local storage (number of wins should persist across page refreshes)
+### Preview of App:
+https://user-images.githubusercontent.com/114871395/212723147-b93e8cc9-fa84-4ba6-94a3-8b4a5597179f.png
 
-## Avatar Game
+### Contributors
+Kara Anderson
 
-Earth, Water, Fire, Air, Avatar
+### Context:
+This project is the final Mod 1 solo project.  It was assigned on the 10th of January, and was due on the 17th.  Overall, I put 2-3 hours of work into the project each day, for a total of around 20 hours of work time.
+Project spec: https://frontend.turing.edu/projects/module-1/rock-paper-scissors-solo-v2.html
 
-Avatar loses to Water, Earth
-Avatar wins against Fire, Air
-
-Earth loses to Fire, Air
-Earths wins against Avatar, Water
-
-Air loses to Fire, Avatar
-Air wins against Earth, Water
-
-Water loses to Earth, Air
-Water wins against Avatar, Fire
-
-Fire loses to Water, Avatar
-Fire wins against Air, Earth
-
-## KEYS
-
-1 - rock
-2 - paper
-3 - scissors
-
-4 - water
-5 - earth
-6 - avatar
-7 - fire
-8 - air
-
-Classic:
-1 beats 3
-2 beats 1
-3 beats 2
-
-Complex:
-4 wins against 6, 7 loses to 5, 8
-5 wins against 6, 4 loses to 7, 8
-6 wins against 7, 8 loses to 4, 5
-7 wins against 8, 5 loses to 4, 6
-8 wins against 5, 4 loses to 6, 7
+### Learning Goals / Achievements
+One of my biggest learning goals was to leave this project feeling confident in DOM versus Data Model manipulation.  I wanted to have a clear understanding of which actions are updating the Data Model, which are updating the DOM, and make sure I knew how to do it in the correct order.  I learned to only display things on the page that the Data Model had stored, and to pass user input directly to the Data Model for updates.
+Another goal was to be more comfortable using flexbox.  Even when I got frustrated, I continued to work with flexbox, and it paid off for this project.
