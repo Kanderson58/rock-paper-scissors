@@ -101,14 +101,13 @@ function positionComet() {
 }
 
 function encouragePlayer() {
-    var gamesLeft = 3 - (currentGame.human.wins - currentGame.computer.wins);
-    if(gamesLeft > 0 && gamesLeft < 6 && currentGame.currentWin) {
-        sozinCaption.innerText = `You can do it! ${gamesLeft} more to go!`;
-    } else if(gamesLeft > 0 && gamesLeft < 6 && !currentGame.currentWin) {
+    if(currentGame.gamesLeft > 0 && currentGame.gamesLeft < 6 && currentGame.currentWin) {
+        sozinCaption.innerText = `You can do it! ${currentGame.gamesLeft} more to go!`;
+    } else if(currentGame.gamesLeft > 0 && currentGame.gamesLeft < 6 && !currentGame.currentWin) {
         sozinCaption.innerText = 'Win 3 games to save the nations!';
-    } else if(gamesLeft === 6) {
+    } else if(currentGame.gamesLeft === 6) {
         sozinCaption.innerText = 'Oh no...';
-    } else if(gamesLeft === 0) {
+    } else if(currentGame.gamesLeft === 0) {
         sozinCaption.innerText = 'Hooray!';
     }
 }
@@ -119,7 +118,7 @@ function showWinCount() {
     void compWins.offsetWidth;
     show(compWins);
     compWins.innerText = `Wins: ${currentGame.computer.wins}`;
-    } else if(currentGame.currentWin === 'Person') {
+    } else {
     hide(humanWins);
     void humanWins.offsetWidth;
     show(humanWins);
@@ -153,25 +152,6 @@ function displayNationsFate() {
     } else if(currentGame.cometPosition === -240) {
         gameHeader.innerText = 'You failed the Nations...';
     }
-}
-
-function resetFullGame() {
-    currentGame = new Game;
-    gameHeader.innerText = 'Choose Your Game!';
-    sozinComet.style['object-position'] = '0px';
-    sozinCaption.innerText = 'Uh oh! Sozin\'s comet is on the way!  Win games to save the nations!';
-    humanWins.innerText = 'Wins: 0';
-    compWins.innerText = 'Wins: 0';
-    show(classicGameOption);
-    show(complexGameOption);
-    hide(imagesClassic);
-    hide(imagesComplex);
-    hide(resetButton);
-    hide(totalResetButton);
-    classicResults.innerHTML = '';
-    imagesClassic.innerHTML = '';
-    complexResults.innerHTML = '';
-    imagesComplex.innerHTML = '';
 }
 
 function showClassicGame() {
@@ -210,4 +190,23 @@ function showOptions() {
     hide(imagesComplex);
     hide(resetButton);
     hide(totalResetButton);
+}
+
+function resetFullGame() {
+    currentGame = new Game;
+    gameHeader.innerText = 'Choose Your Game!';
+    sozinComet.style['object-position'] = '0px';
+    sozinCaption.innerText = 'Uh oh! Sozin\'s comet is on the way!  Win games to save the nations!';
+    humanWins.innerText = 'Wins: 0';
+    compWins.innerText = 'Wins: 0';
+    show(classicGameOption);
+    show(complexGameOption);
+    hide(imagesClassic);
+    hide(imagesComplex);
+    hide(resetButton);
+    hide(totalResetButton);
+    classicResults.innerHTML = '';
+    imagesClassic.innerHTML = '';
+    complexResults.innerHTML = '';
+    imagesComplex.innerHTML = '';
 }
