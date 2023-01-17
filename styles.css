@@ -20,9 +20,13 @@ main {
     height: 100%;
 }
 
-h1 {
+h1, h2 {
     font-size: 40pt;
     margin: 0;
+}
+
+h2 {
+    font-size: 20pt;
 }
 
 section {
@@ -31,9 +35,49 @@ section {
     background-color: #face8d;
 }
 
+p {
+    font-size: 15pt;
+}
+
+section, header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 img {
     height: 150px;
     width: 150px;
+    border-radius: 5px;
+}
+
+strong {
+    font-size: larger;
+    color: #964637;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 7%;
+}
+
+figcaption {
+    font-size: 20pt;
+    text-align: center;
+}
+
+div, .reset-button, .full-reset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #face8d;
+    border: 3px solid #964637;
     border-radius: 5px;
 }
 
@@ -72,32 +116,8 @@ img {
     animation-fill-mode: forwards;
 }
 
-h2 {
-    font-size: 20pt;
-    margin: 0;
-}
-
-p {
-    font-size: 15pt;
-}
-
-section, header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .computer-header, .person-header {
     margin-top: 30%;
-}
-
-div, .reset-button, .full-reset {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #face8d;
-    border: 3px solid #964637;
-    border-radius: 5px;
 }
 
 .classic-game, .complex-game {
@@ -106,22 +126,6 @@ div, .reset-button, .full-reset {
 
 .complex-game {
     margin-bottom: 10%;
-}
-
-strong {
-    font-size: larger;
-    color: #964637;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    white-space: nowrap;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 7%;
 }
 
 .classic-game:hover, .complex-game:hover, .reset-button:hover, .full-reset:hover {
@@ -142,12 +146,7 @@ ul {
     padding-bottom: 25%;
 }
 
-figcaption {
-    font-size: 20pt;
-    text-align: center;
-}
-
-#humanFig, #compFig {
+.figcap {
     font-size: 30pt;
     position: relative;
     top: -40px;

@@ -78,21 +78,19 @@ function showBattleMode() {
 function addTokens(results) {
     var compFighter = imageCodes[currentGame.computer.chosenFighter];
     var humanFighter = imageCodes[currentGame.human.chosenFighter];
-    results.innerHTML = `<figure>${humanFighter}<figcaption id="humanFig" class="hidden">${currentGame.human.token}</figcaption></figure><figure>${compFighter}<figcaption id="compFig" class="hidden">${currentGame.computer.token}</figcaption></figure>`;
+    results.innerHTML = `<figure>${humanFighter}<figcaption id="humanFig" class="figcap hidden">${currentGame.human.token}</figcaption></figure><figure>${compFighter}<figcaption id="compFig" class="figcap hidden">${currentGame.computer.token}</figcaption></figure>`;
     showWinToken();
 }
 
 function showWinToken() {
     var humanFig = document.getElementById('humanFig');
     var compFig = document.getElementById('compFig');
-    if(currentGame.currentWin === 'Person')
-     {
+    if(currentGame.currentWin === 'Person'){
         currentGame.moveComet();
         positionComet();
         show(humanFig);
         showWinCount();
-    } else if(currentGame.currentWin === 'Computer')
-    {
+    } else if(currentGame.currentWin === 'Computer'){
         currentGame.moveComet();
         positionComet();
         show(compFig);
@@ -138,8 +136,8 @@ function prepNextRound() {
         displayNationsFate();
         return;
     }
-    show(resetButton)
-    displayGame()
+    show(resetButton);
+    displayGame();
 }
 
 function displayNationsFate() {
