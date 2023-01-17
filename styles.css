@@ -1,201 +1,184 @@
-html {
-    height: 100%;
+html, body, main, section {
+  height: 100%;
+}
+
+body, main, section, header, ul, div, .reset-button, .full-reset, .fighter-images, .play-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 body {
-    margin: 0;
-    display: flex;
-    height: 100%;
-    font-family: 'Herculanum LT Pro', sans-serif;
+  margin: 0;
+  font-family: 'Herculanum LT Pro', sans-serif;
+  flex-direction: row;
 }
 
 main {
-    background-image: url("./assets/arrow.png");
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 66%;
-    height: 100%;
+  background-image: url("./assets/arrow.png");
+  background-position: center;
+  justify-content: space-around;
+  width: 66%;
 }
 
-h1, h2 {
-    font-size: 40pt;
-    margin: 0;
+h1 {
+  font-size: 35pt;
+  margin: 0;
+  padding-top: 2%;
 }
 
 h2 {
-    font-size: 20pt;
+  font-size: 18pt;
+  margin: 0;
 }
 
 section {
-    width: 17%;
-    height: 100%;
-    background-color: #face8d;
+  width: 17%;
+  background-color: #face8d;
 }
 
 p {
-    font-size: 15pt;
-}
-
-section, header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  font-size: 15pt;
 }
 
 img {
-    height: 150px;
-    width: 150px;
-    border-radius: 5px;
+  height: 150px;
+  width: 150px;
+  border-radius: 5px;
 }
 
 strong {
-    font-size: larger;
-    color: #964637;
+  font-size: larger;
+  color: #964637;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    white-space: nowrap;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 7%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+  padding-bottom: 7%;
 }
 
 figcaption {
-    font-size: 20pt;
-    text-align: center;
+  font-size: 20pt;
+  text-align: center;
 }
 
-div, .reset-button, .full-reset {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #face8d;
-    border: 3px solid #964637;
-    border-radius: 5px;
+.classic-game, .complex-game, .reset-button, .full-reset {
+  background-color: #face8d;
+  border: 3px solid #964637;
+  border-radius: 5px;
 }
 
 @keyframes zoom {
-    100% {transform: scale(1.2);}
+  100% {transform: scale(1.2);}
 }
 
 @keyframes emphasize {
-    0% { 
-        color:#fbd0a2; font-size: 60pt;
-    }
-    25% {
-        color:#face8d;
-    }
-    50% { 
-        color:#e37120;
-    }
-    75% {
-        color:#a15419
-    }
-    100% { 
-        color:#964637;
-    }
+  0% { color:#fbd0a2; font-size: 60pt; }
+  25% { color:#face8d; }
+  50% { color:#e37120; }
+  75% { color:#a15419 }
+  100% {  color:#964637; }
 }
 
 .current-wins {
-    animation-name: emphasize;
-    animation-duration: 1s;
-    color: black;
+  animation-name: emphasize;
+  animation-duration: 1s;
+  color: black;
 }
 
 .fighter:hover, .sozin-comet:hover {
-    cursor: pointer;
-    animation-duration: 1s;
-    animation-name: zoom;
-    animation-fill-mode: forwards;
+  cursor: pointer;
+  animation-name: zoom;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 .computer-header, .person-header {
-    margin-top: 30%;
+  margin-top: 30%;
 }
 
 .classic-game, .complex-game {
-    padding: 0% 3% 0% 3%;
+  padding: 0% 3% 0% 3%;
 }
 
 .complex-game {
-    margin-bottom: 10%;
+  margin-bottom: 10%;
 }
 
 .classic-game:hover, .complex-game:hover, .reset-button:hover, .full-reset:hover {
-    background-color: #e37120;
-    transition: 1.5s;
-    cursor: pointer;
+  background-color: #e37120;
+  transition: 1.5s;
+  cursor: pointer;
 }
 
 .fighter-images, .play-screen {
-    display: flex;
-    flex-direction: row;
-    border: none;
-    background: none;
-    padding-bottom: 10%;
+  flex-direction: row;
+  border: none;
+  background: none;
+  margin-bottom: 15%;
 }
 
 .play-screen {
-    padding-bottom: 25%;
+  margin-top: 2%;
+  margin-bottom: 23%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .figcap {
-    font-size: 30pt;
-    position: relative;
-    top: -40px;
-    padding: 1%;
+  position: relative;
+  bottom: 0;
+  font-size: 30pt;
+  top: -40px;
+  padding: 1%;
 }
 
 .sozin-comet-section {
-    width: 800px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: none;
-    border: none;
+  width: 800px;
+  background: none;
+  border: none;
 }
 
 .sozin-comet {
-    width: 800px;
-    height: 75px;
-    padding-left: 10%;
+  width: 800px;
+  height: 75px;
+  padding-left: 10%;
 }
 
 .comet-path {
-    width: 800px;
-    height: 75px;
-    flex-direction: column;
-    align-items: center;
-    background: none;
-    border: none;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url("./assets/comet-path.png");
+  width: 800px;
+  height: 75px;
+  background: none;
+  border: none;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("./assets/comet-path.png");
 }
 
 .sozin-figcap {
-    font-size: 18px;
-    color: #964637;
-    width: 360px;
+  font-size: 18px;
+  color: #964637;
+  width: 360px;
 }
 
 .reset-button, .full-reset {
-    font-family: 'Herculanum LT Pro', sans-serif;
-    font-size: 15pt;
-    background-color:#fbd0a2;
-    width: 400px;
-    padding: 2%;
-    margin-bottom: 15%;
+  font-family: 'Herculanum LT Pro', sans-serif;
+  font-size: 15pt;
+  background-color:#fbd0a2;
+  width: 400px;
+  padding: 2%;
+  margin-bottom: 2%;
+}
+
+.full-reset {
+  font-size: 25pt;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
