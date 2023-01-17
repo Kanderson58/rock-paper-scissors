@@ -15,14 +15,18 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 66%;
     height: 100%;
 }
 
-h1 {
+h1, h2 {
     font-size: 40pt;
     margin: 0;
+}
+
+h2 {
+    font-size: 20pt;
 }
 
 section {
@@ -31,9 +35,49 @@ section {
     background-color: #face8d;
 }
 
+p {
+    font-size: 15pt;
+}
+
+section, header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 img {
     height: 150px;
     width: 150px;
+    border-radius: 5px;
+}
+
+strong {
+    font-size: larger;
+    color: #964637;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 7%;
+}
+
+figcaption {
+    font-size: 20pt;
+    text-align: center;
+}
+
+div, .reset-button, .full-reset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #face8d;
+    border: 3px solid #964637;
     border-radius: 5px;
 }
 
@@ -72,61 +116,16 @@ img {
     animation-fill-mode: forwards;
 }
 
-h2 {
-    font-size: 20pt;
-    margin: 0;
-}
-
-p {
-    font-size: 15pt;
-}
-
-section, header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .computer-header, .person-header {
     margin-top: 30%;
 }
 
-.main-header {
-    margin-top: 5%;
-}
-
-div, .reset-button, .full-reset {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #face8d;
-    border: 3px solid #964637;
-    border-radius: 5px;
-}
-
-.classic-game {
-    width: 25%
+.classic-game, .complex-game {
+    padding: 0% 3% 0% 3%;
 }
 
 .complex-game {
-    width: 40%;
     margin-bottom: 10%;
-}
-
-strong {
-    font-size: larger;
-    color: #964637;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    white-space: nowrap;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 7%;
 }
 
 .classic-game:hover, .complex-game:hover, .reset-button:hover, .full-reset:hover {
@@ -135,24 +134,19 @@ ul {
     cursor: pointer;
 }
 
-.images-complex, .images-classic, .play-screen {
+.fighter-images, .play-screen {
     display: flex;
     flex-direction: row;
     border: none;
     background: none;
-    margin-bottom: 10%;
-}
-
-.play-screen {
     padding-bottom: 10%;
 }
 
-figcaption {
-    font-size: 20pt;
-    text-align: center;
+.play-screen {
+    padding-bottom: 25%;
 }
 
-#humanFig, #compFig {
+.figcap {
     font-size: 30pt;
     position: relative;
     top: -40px;
@@ -199,7 +193,7 @@ figcaption {
     background-color:#fbd0a2;
     width: 400px;
     padding: 2%;
-    margin: 2%;
+    margin-bottom: 15%;
 }
 
 .hidden {

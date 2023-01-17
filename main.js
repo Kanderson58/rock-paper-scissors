@@ -3,17 +3,14 @@ var currentGame = new Game;
 var gameHeader = document.getElementById('gameHeader');
 var classicGameOption = document.getElementById('classic');
 var complexGameOption = document.getElementById('complex');
-var imagesComplex = document.querySelector('.images-complex');
-var imagesClassic = document.querySelector('.images-classic')
-var classicResults = document.getElementById('classicPlay');
-var complexResults = document.getElementById('complexPlay');
+var fighterDisplay = document.getElementById('imageBlock')
+var results = document.getElementById('play');
 var compWins = document.getElementById('compWins');
 var humanWins = document.getElementById('humanWins');
 var gamePlay = document.querySelectorAll('#imageBlock');
 var resetButton = document.getElementById('resetBtn');
 var sozinComet = document.getElementById('sozinComet');
 var sozinCaption = document.getElementById('sozinCaption');
-var cometOutcome = document.getElementById('cometOutcome');
 var totalResetButton = document.getElementById('fullReset');
 
 classicGameOption.addEventListener('click', selectClassic);
@@ -35,12 +32,28 @@ function show(element) {
 
 function selectClassic() {
     currentGame.selectGameSetup('classic');
-    showClassicGame();
+    displayGame();
 }
 
 function selectComplex() {
     currentGame.selectGameSetup('complex');
-    showComplexGame();
+    displayGame();
+}
+
+function displayGame() {
+    encouragePlayer();
+    gameHeader.innerText = 'Choose Your Fighter!';
+    results.innerHTML = '';
+    fighterDisplay.innerHTML = '';
+    for(var i = 0; i < currentGame.fighters.length; i++) {
+        fighterDisplay.innerHTML += `${imageCodes[currentGame.fighters[i]]}`;
+    }
+    hide(results);
+    show(fighterDisplay);
+    show(resetButton);
+    hide(classicGameOption);
+    hide(complexGameOption);
+    hide(totalResetButton);
 }
 
 function selectFighter(event) {
@@ -57,35 +70,27 @@ function showBattleMode() {
     } else {
         gameHeader.innerText ='It\'s a draw!';
     }
-    if(currentGame.selectedGame === 'classic') {
-        hide(imagesClassic);
-        show(classicResults);
-        addTokens(classicResults);
-    } else {
-        hide(imagesComplex);
-        show(complexResults);
-        addTokens(complexResults);
-    }
+    hide(fighterDisplay);
+    show(results);
+    addTokens(results);
 }
 
 function addTokens(results) {
     var compFighter = imageCodes[currentGame.computer.chosenFighter];
     var humanFighter = imageCodes[currentGame.human.chosenFighter];
-    results.innerHTML = `<figure>${humanFighter}<figcaption id="humanFig" class="hidden">${currentGame.human.token}</figcaption></figure><figure>${compFighter}<figcaption id="compFig" class="hidden">${currentGame.computer.token}</figcaption></figure>`;
+    results.innerHTML = `<figure>${humanFighter}<figcaption id="humanFig" class="figcap hidden">${currentGame.human.token}</figcaption></figure><figure>${compFighter}<figcaption id="compFig" class="figcap hidden">${currentGame.computer.token}</figcaption></figure>`;
     showWinToken();
 }
 
 function showWinToken() {
     var humanFig = document.getElementById('humanFig');
     var compFig = document.getElementById('compFig');
-    if(currentGame.currentWin === 'Person')
-     {
+    if(currentGame.currentWin === 'Person'){
         currentGame.moveComet();
         positionComet();
         show(humanFig);
         showWinCount();
-    } else if(currentGame.currentWin === 'Computer')
-    {
+    } else if(currentGame.currentWin === 'Computer'){
         currentGame.moveComet();
         positionComet();
         show(compFig);
@@ -101,14 +106,13 @@ function positionComet() {
 }
 
 function encouragePlayer() {
-    var gamesLeft = 3 - (currentGame.human.wins - currentGame.computer.wins);
-    if(gamesLeft > 0 && gamesLeft < 6 && currentGame.currentWin) {
-        sozinCaption.innerText = `You can do it! ${gamesLeft} more to go!`;
-    } else if(gamesLeft > 0 && gamesLeft < 6 && !currentGame.currentWin) {
+    if(currentGame.gamesLeft > 0 && currentGame.gamesLeft < 6 && currentGame.currentWin) {
+        sozinCaption.innerText = `You can do it! ${currentGame.gamesLeft} more to go!`;
+    } else if(currentGame.gamesLeft > 0 && currentGame.gamesLeft < 6 && !currentGame.currentWin) {
         sozinCaption.innerText = 'Win 3 games to save the nations!';
-    } else if(gamesLeft === 6) {
+    } else if(currentGame.gamesLeft === 6) {
         sozinCaption.innerText = 'Oh no...';
-    } else if(gamesLeft === 0) {
+    } else if(currentGame.gamesLeft === 0) {
         sozinCaption.innerText = 'Hooray!';
     }
 }
@@ -119,7 +123,7 @@ function showWinCount() {
     void compWins.offsetWidth;
     show(compWins);
     compWins.innerText = `Wins: ${currentGame.computer.wins}`;
-    } else if(currentGame.currentWin === 'Person') {
+    } else {
     hide(humanWins);
     void humanWins.offsetWidth;
     show(humanWins);
@@ -132,19 +136,13 @@ function prepNextRound() {
         displayNationsFate();
         return;
     }
-    show(resetButton)
-    if(currentGame.selectedGame === 'classic') {
-        showClassicGame();
-    } else {
-        showComplexGame();
-    }
+    show(resetButton);
+    displayGame();
 }
 
 function displayNationsFate() {
-    hide(classicResults);
-    hide(complexResults);
-    hide(imagesClassic);
-    hide(imagesComplex);
+    hide(results);
+    hide(fighterDisplay);
     hide(resetButton);
     show(totalResetButton);
     sozinCaption.innerText = '';
@@ -153,6 +151,15 @@ function displayNationsFate() {
     } else if(currentGame.cometPosition === -240) {
         gameHeader.innerText = 'You failed the Nations...';
     }
+}
+
+function showOptions() {
+    gameHeader.innerText = 'Choose Your Game!';
+    show(classicGameOption);
+    show(complexGameOption);
+    hide(fighterDisplay);
+    hide(resetButton);
+    hide(totalResetButton);
 }
 
 function resetFullGame() {
@@ -164,50 +171,9 @@ function resetFullGame() {
     compWins.innerText = 'Wins: 0';
     show(classicGameOption);
     show(complexGameOption);
-    hide(imagesClassic);
-    hide(imagesComplex);
+    hide(fighterDisplay);
     hide(resetButton);
     hide(totalResetButton);
-    classicResults.innerHTML = '';
-    imagesClassic.innerHTML = '';
-    complexResults.innerHTML = '';
-    imagesComplex.innerHTML = '';
-}
-
-function showClassicGame() {
-    encouragePlayer();
-    gameHeader.innerText = 'Choose Your Fighter!';
-    classicResults.innerHTML = '';
-    imagesClassic.innerHTML = '';
-    imagesClassic.innerHTML += `${imageCodes[0]}${imageCodes[1]}${imageCodes[2]}`;
-    hide(classicResults);
-    show(imagesClassic);
-    show(resetButton);
-    hide(classicGameOption);
-    hide(complexGameOption);
-    hide(totalResetButton);
-}
-
-function showComplexGame() {
-    encouragePlayer();
-    gameHeader.innerText = 'Choose Your Fighter!';
-    complexResults.innerHTML = '';
-    imagesComplex.innerHTML = '';
-    imagesComplex.innerHTML += `${imageCodes[3]}${imageCodes[4]}${imageCodes[5]}${imageCodes[6]}${imageCodes[7]}`;
-    hide(complexResults);
-    show(imagesComplex);
-    show(resetButton);
-    hide(classicGameOption);
-    hide(complexGameOption);
-    hide(totalResetButton);
-}
-
-function showOptions() {
-    gameHeader.innerText = 'Choose Your Game!';
-    show(classicGameOption);
-    show(complexGameOption);
-    hide(imagesClassic);
-    hide(imagesComplex);
-    hide(resetButton);
-    hide(totalResetButton);
+    results.innerHTML = '';
+    fighterDisplay.innerHTML = '';
 }

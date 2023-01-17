@@ -6,6 +6,7 @@ class Game {
         this.selectedGame;
         this.currentWin = '';
         this.cometPosition = 0;
+        this.gamesLeft;
     }
     selectGameSetup(type){
         this.selectedGame = type;
@@ -101,5 +102,6 @@ class Game {
         } else if(currentGame.currentWin === 'Computer'){
             this.cometPosition -= 80;
         }
+        this.gamesLeft = 3 - (this.human.wins - this.computer.wins);
     }
 }
