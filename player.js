@@ -6,11 +6,11 @@ class Player {
     this.chosenFighter; 
   }
   takeTurn(chosenImg) {
-    if(this.name === 'cabbage merchant') {
+    if (this.name === 'cabbage merchant') {
       this.chosenFighter = parseInt(chosenImg);
-    } else if(currentGame.selectedGame === 'classic' && this.name === 'avatar state') {
+    } else if (currentGame.selectedGame === 'classic' && this.name === 'avatar state') {
       this.getRandomFighter(0, 3);
-    } else if(currentGame.selectedGame === 'complex' && this.name === 'avatar state') {
+    } else if (currentGame.selectedGame === 'complex' && this.name === 'avatar state') {
       this.getRandomFighter(3, 8);
     }
   }

@@ -15,7 +15,7 @@ var totalResetButton = document.getElementById('fullReset');
 
 classicGameOption.addEventListener('click', selectClassic);
 complexGameOption.addEventListener('click', selectComplex);
-for(var i = 0; i < gamePlay.length; i++) {
+for (var i = 0; i < gamePlay.length; i++) {
   gamePlay[i].addEventListener('click', selectFighter);
 }
 resetButton.addEventListener('click', showOptions);
@@ -51,14 +51,14 @@ function displayGame() {
 }
 
 function encouragePlayer() {
-  if(currentGame.gamesLeft > 0 && currentGame.gamesLeft < 6 && currentGame.currentWin) {
-      sozinCaption.innerText = `You can do it! ${currentGame.gamesLeft} more to go!`;
-  } else if(currentGame.gamesLeft > 0 && currentGame.gamesLeft < 6 && !currentGame.currentWin) {
+  if (currentGame.gamesLeft > 0 && currentGame.gamesLeft < 6 && currentGame.currentWin) {
+    sozinCaption.innerText = `You can do it! ${currentGame.gamesLeft} more to go!`;
+  } else if (currentGame.gamesLeft > 0 && currentGame.gamesLeft < 6 && !currentGame.currentWin) {
     sozinCaption.innerText = 'Win 3 games to save the nations!';
-  } else if(currentGame.gamesLeft === 6) {
-      sozinCaption.innerText = 'Oh no...';
-  } else if(currentGame.gamesLeft === 0) {
-      sozinCaption.innerText = 'Hooray!';
+  } else if (currentGame.gamesLeft === 6) {
+    sozinCaption.innerText = 'Oh no...';
+  } else if (currentGame.gamesLeft === 0) {
+    sozinCaption.innerText = 'Hooray!';
   }
 }
 
@@ -66,7 +66,7 @@ function displayFighters() {
   gameHeader.innerText = 'Choose Your Fighter!';
   results.innerHTML = '';
   fighterDisplay.innerHTML = '';
-  for(var i = 0; i < currentGame.fighters.length; i++) {
+  for (var i = 0; i < currentGame.fighters.length; i++) {
     fighterDisplay.innerHTML += `${imageCodes[currentGame.fighters[i]]}`;
   }
 }
@@ -103,26 +103,26 @@ function addTokens() {
 function showWinToken() {
   var humanFig = document.getElementById('humanFig');
   var compFig = document.getElementById('compFig');
-  if(currentGame.currentWin === 'Person'){
+  if (currentGame.currentWin === 'Person'){
     humanFig.innerText = `${currentGame.human.token}`;
-  } else if(currentGame.currentWin === 'Computer'){
+  } else if (currentGame.currentWin === 'Computer'){
     compFig.innerText = `${currentGame.computer.token}`;
   }
 }
 
 function positionComet() {
-  if(currentGame.cometPosition <= 240 && currentGame.cometPosition >= -240) {
+  if (currentGame.cometPosition <= 240 && currentGame.cometPosition >= -240) {
     sozinComet.style['object-position'] = `${currentGame.cometPosition}px`;
   }
 }
 
 function showWinCount() {
-  if(currentGame.currentWin === 'Computer') {
+  if (currentGame.currentWin === 'Computer') {
     hide(compWins);
     void compWins.offsetWidth;
     show(compWins);
     compWins.innerText = `Wins: ${currentGame.computer.wins}`;
-  } else if(currentGame.currentWin === 'Person') {
+  } else if (currentGame.currentWin === 'Person') {
     hide(humanWins);
     void humanWins.offsetWidth;
     show(humanWins);
@@ -131,7 +131,7 @@ function showWinCount() {
 }
 
 function announceWinner() {
-  if(currentGame.currentWin === 'Draw') {
+  if (currentGame.currentWin === 'Draw') {
     gameHeader.innerText ='It\'s a draw!';
   } else {
     gameHeader.innerText = `${currentGame.currentWin} has won!`;
@@ -139,7 +139,7 @@ function announceWinner() {
 }
 
 function prepNextRound() {
-  if(currentGame.cometPosition === 240 || currentGame.cometPosition === -240) {
+  if (currentGame.cometPosition === 240 || currentGame.cometPosition === -240) {
     displayNationsFate();
     return;
   }
@@ -152,9 +152,9 @@ function displayNationsFate() {
   hide(resetButton);
   show(totalResetButton);
   sozinCaption.innerText = '';
-  if(currentGame.cometPosition === 240) {
+  if (currentGame.cometPosition === 240) {
     gameHeader.innerText = '🎉 You saved the Nations!! 🎉';
-  } else if(currentGame.cometPosition === -240) {
+  } else if (currentGame.cometPosition === -240) {
     gameHeader.innerText = '🫤 You failed the Nations... 🫤';
   }
 }

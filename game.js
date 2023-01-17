@@ -10,14 +10,14 @@ class Game {
   }
   selectGameSetup(type) {
     this.selectedGame = type;
-    if(this.selectedGame === 'classic') {
+    if (this.selectedGame === 'classic') {
       this.fighters = [0, 1, 2];
     } else {
       this.fighters = [3, 4, 5, 6, 7];
     }
   }
   selectGameLogic() {
-    if(this.selectedGame === 'classic') {
+    if (this.selectedGame === 'classic') {
       this.compareFightersClassic();
     } else {
       this.compareFightersComplex();
@@ -26,70 +26,70 @@ class Game {
   compareFightersClassic() {
     var human = this.human.chosenFighter;
     var comp = this.computer.chosenFighter;
-    if(human === 0 && comp === 1) {
+    if (human === 0 && comp === 1) {
       this.computer.wins++;
       this.currentWin = 'Computer';
-    } else if(human === 0 && comp === 2) {
+    } else if (human === 0 && comp === 2) {
       this.human.wins++;
       this.currentWin = 'Person';
     }
-    if(human === 1 && comp === 2) {
+    if (human === 1 && comp === 2) {
       this.computer.wins++;
       this.currentWin = 'Computer';
-    } else if(human === 1 && comp === 0) {
+    } else if (human === 1 && comp === 0) {
       this.human.wins++;
       this.currentWin = 'Person';
     }
-    if(human === 2 && comp === 0) {
+    if (human === 2 && comp === 0) {
       this.computer.wins++;
       this.currentWin = 'Computer';
-    } else if(human === 2 && comp === 1) {
+    } else if (human === 2 && comp === 1) {
       this.human.wins++;
       this.currentWin = 'Person';
     }
-    if(human === comp) {
+    if (human === comp) {
       this.declareDraw();
     }
   }
   compareFightersComplex() {
     var human = this.human.chosenFighter;
     var comp = this.computer.chosenFighter;
-    if(human === 3 && (comp === 4 || comp === 7)) {
+    if (human === 3 && (comp === 4 || comp === 7)) {
       this.computer.wins++;
       this.currentWin = 'Computer';
-    } else if(human === 3 && (comp === 5 || comp === 6)) {
+    } else if (human === 3 && (comp === 5 || comp === 6)) {
       this.human.wins++;
       this.currentWin = 'Person';
     }
-    if(human === 4 && (comp === 6 || comp === 7)) {
+    if (human === 4 && (comp === 6 || comp === 7)) {
       this.computer.wins++;
       this.currentWin = 'Computer';
-    } else if(human === 4 && (comp === 3 || comp === 5)) {
+    } else if (human === 4 && (comp === 3 || comp === 5)) {
       this.human.wins++;
       this.currentWin = 'Person';
     }
-    if(human === 5 && (comp === 3 || comp === 4)) {
+    if (human === 5 && (comp === 3 || comp === 4)) {
       this.computer.wins++;
       this.currentWin = 'Computer';
-    } else if(human === 5 && (comp === 6 || comp === 7)) {
+    } else if (human === 5 && (comp === 6 || comp === 7)) {
       this.human.wins++;
       this.currentWin = 'Person';
     }
-    if(human === 6 && (comp === 3 || comp === 5)) {
+    if (human === 6 && (comp === 3 || comp === 5)) {
       this.computer.wins++;
       this.currentWin = 'Computer';
-    } else if(human === 6 && (comp === 7 || comp === 4)) {
+    } else if (human === 6 && (comp === 7 || comp === 4)) {
       this.human.wins++;
       this.currentWin = 'Person';
     }
-    if(human === 7 && (comp === 5 || comp === 6)) {
+    if (human === 7 && (comp === 5 || comp === 6)) {
       this.computer.wins++;
       this.currentWin = 'Computer';
-    } else if(human === 7 && (comp === 4 || comp === 3)) {
+    } else if (human === 7 && (comp === 4 || comp === 3)) {
       this.human.wins++;
       this.currentWin = 'Person';
     }
-    if(human === comp) {
+    if (human === comp) {
       this.declareDraw();
     }
   }
@@ -97,9 +97,9 @@ class Game {
     this.currentWin = 'Draw';
   }
   moveComet() {
-    if(currentGame.currentWin === 'Person') {
+    if (currentGame.currentWin === 'Person') {
       this.cometPosition += 80;
-    } else if(currentGame.currentWin === 'Computer'){
+    } else if (currentGame.currentWin === 'Computer'){
       this.cometPosition -= 80;
     }
     this.gamesLeft = 3 - (this.human.wins - this.computer.wins);
