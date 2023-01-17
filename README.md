@@ -14,7 +14,7 @@ Repository Available Here: https://github.com/Kanderson58/rock-paper-scissors
 5. Chose the game you prefer and start playing!
 
 ### Preview of App:
-<div style="position: relative; padding-bottom: 53.85416666666667%; height: 0;"><iframe src="https://www.loom.com/embed/69b319a46c1f4410807a46ac7b2ce87e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+[Loom Walkthrough!](https://www.loom.com/share/69b319a46c1f4410807a46ac7b2ce87e)
 ![Rock, paper, scissors preview](https://user-images.githubusercontent.com/114871395/212723147-b93e8cc9-fa84-4ba6-94a3-8b4a5597179f.png)
 
 ### Contributors
