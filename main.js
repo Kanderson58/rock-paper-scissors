@@ -96,8 +96,8 @@ function addTokens() {
   var compFighter = imageCodes[currentGame.computer.chosenFighter];
   var humanFighter = imageCodes[currentGame.human.chosenFighter];
   results.innerHTML = 
-  `<figure>${humanFighter}<figcaption id="humanFig" class="figcap"></figcaption></figure>;
-  <figure>${compFighter}<figcaption id="compFig" class="figcap"></figcaption></figure>;`;
+  `<figure>${humanFighter}<figcaption id="humanFig" class="figcap"></figcaption></figure>
+  <figure>${compFighter}<figcaption id="compFig" class="figcap"></figcaption></figure>`;
 }
 
 function showWinToken() {
