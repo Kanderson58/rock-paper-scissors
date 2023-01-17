@@ -1,48 +1,44 @@
-html {
+html, body, main, section {
     height: 100%;
+}
+
+body, main, section, header, ul, div, .reset-button, .full-reset, .fighter-images, .play-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 body {
     margin: 0;
-    display: flex;
-    height: 100%;
     font-family: 'Herculanum LT Pro', sans-serif;
+    flex-direction: row;
 }
 
 main {
     background-image: url("./assets/arrow.png");
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     width: 66%;
-    height: 100%;
 }
 
-h1, h2 {
-    font-size: 40pt;
+h1 {
+    font-size: 35pt;
     margin: 0;
+    padding-top: 2%;
 }
 
 h2 {
-    font-size: 20pt;
+    font-size: 18pt;
+    margin: 0;
 }
 
 section {
     width: 17%;
-    height: 100%;
     background-color: #face8d;
 }
 
 p {
     font-size: 15pt;
-}
-
-section, header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 img {
@@ -61,9 +57,6 @@ ul {
     padding: 0;
     list-style: none;
     white-space: nowrap;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding-bottom: 7%;
 }
 
@@ -72,10 +65,7 @@ figcaption {
     text-align: center;
 }
 
-div, .reset-button, .full-reset {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.classic-game, .complex-game, .reset-button, .full-reset {
     background-color: #face8d;
     border: 3px solid #964637;
     border-radius: 5px;
@@ -111,8 +101,8 @@ div, .reset-button, .full-reset {
 
 .fighter:hover, .sozin-comet:hover {
     cursor: pointer;
-    animation-duration: 1s;
     animation-name: zoom;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
 }
 
@@ -135,29 +125,30 @@ div, .reset-button, .full-reset {
 }
 
 .fighter-images, .play-screen {
-    display: flex;
     flex-direction: row;
     border: none;
     background: none;
-    padding-bottom: 10%;
+    margin-bottom: 15%;
 }
 
 .play-screen {
-    padding-bottom: 25%;
+    margin-top: 2%;
+    margin-bottom: 23%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
 }
 
 .figcap {
-    font-size: 30pt;
     position: relative;
+    bottom: 0;
+    font-size: 30pt;
     top: -40px;
     padding: 1%;
 }
 
 .sozin-comet-section {
     width: 800px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background: none;
     border: none;
 }
@@ -171,8 +162,6 @@ div, .reset-button, .full-reset {
 .comet-path {
     width: 800px;
     height: 75px;
-    flex-direction: column;
-    align-items: center;
     background: none;
     border: none;
     background-position: center;
@@ -193,7 +182,11 @@ div, .reset-button, .full-reset {
     background-color:#fbd0a2;
     width: 400px;
     padding: 2%;
-    margin-bottom: 15%;
+    margin-bottom: 2%;
+}
+
+.full-reset {
+    font-size: 25pt;
 }
 
 .hidden {
