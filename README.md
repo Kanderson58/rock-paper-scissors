@@ -10,10 +10,11 @@ Repository Available Here: https://github.com/Kanderson58/rock-paper-scissors
 1. Fork repository
 2. Clone repository onto local machine
 3. In terminal - change directory(cd) into newly cloned directory, can also use Finder to search for index.html
-4. Open index.html file in browser
+4. Open index.html file in browser (best viewed on a Mac screen!)
 5. Chose the game you prefer and start playing!
 
 ### Preview of App:
+<div style="position: relative; padding-bottom: 53.85416666666667%; height: 0;"><iframe src="https://www.loom.com/embed/69b319a46c1f4410807a46ac7b2ce87e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 ![Rock, paper, scissors preview](https://user-images.githubusercontent.com/114871395/212723147-b93e8cc9-fa84-4ba6-94a3-8b4a5597179f.png)
 
 ### Contributors
@@ -21,7 +22,7 @@ Repository Available Here: https://github.com/Kanderson58/rock-paper-scissors
 
 ### Context:
 This project is the final Mod 1 solo project.  It was assigned on the 10th of January, and was due on the 17th.  Overall, I put 2-3 hours of work into the project each day, for a total of around 20 hours of work time.
-Project spec: https://frontend.turing.edu/projects/module-1/rock-paper-scissors-solo-v2.html
+- Project spec: https://frontend.turing.edu/projects/module-1/rock-paper-scissors-solo-v2.html
 
 ### Learning Goals / Achievements
 - One of my biggest learning goals was to leave this project feeling confident in DOM versus Data Model manipulation.  I wanted to have a clear understanding of which actions are updating the Data Model, which are updating the DOM, and make sure I knew how to do it in the correct order.  I learned to only display things on the page that the Data Model had stored, and to pass user input directly to the Data Model for updates.
